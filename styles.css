@@ -1,0 +1,29 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+	font-family: 'Manrope', sans-serif;
+}
+
+input,
+select,
+button {
+	font: inherit;
+}
+
+img,
+iframe {
+	display: block;
+	max-width: 100%;
+}
