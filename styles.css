@@ -66,12 +66,12 @@ header .container {
 	display: flex;
 	gap: 30px;
 	align-items: center;
-	/* justify-content: space-between */
+	justify-content: space-between;
 }
 
 .header-text {
 	color: #ffffff;
-	width: 50%;
+	flex: 1;
 }
 
 .header-text h1 {
@@ -88,3 +88,49 @@ header .container {
 }
 
 /* Header Cards */
+.header-cards {
+	flex: 1;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-gap: 8px;
+}
+
+.header-card {
+	border-radius: 8px;
+	padding: 12px;
+	/* delete later */
+	background-color: #cecece;
+}
+
+.header-card__time {
+	height: 70%;
+	align-self: flex-end;
+}
+
+.header-card__weather {
+}
+
+.header-card__fromlocation {
+}
+
+.header-card__tolocation {
+}
+
+/* Header Nav Cards */
+.header-nav {
+	grid-column: span 2;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 8px;
+	position: relative;
+}
+
+.header-nav a:nth-of-type(1) {
+	grid-column: span 2;
+}
+
+.header-nav__title {
+	position: absolute;
+	display: none; /* temp */
+}
