@@ -31,3 +31,60 @@ iframe {
 	display: block;
 	max-width: 100%;
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+p {
+	letter-spacing: 0.025rem;
+}
+
+/*********************/
+/* Reusable Classes */
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+/******************/
+/* Header Section */
+
+/* Header Text */
+header {
+	background-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.5) 150%),
+		url(/assets/nyc-landscape.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	max-width: 100%;
+}
+
+header .container {
+	padding: 100px 40px;
+	display: flex;
+	gap: 30px;
+	align-items: center;
+	/* justify-content: space-between */
+}
+
+.header-text {
+	color: #ffffff;
+	width: 50%;
+}
+
+.header-text h1 {
+	font-size: 5rem;
+	font-weight: 700;
+}
+
+.header-text h1 span {
+	text-shadow: 8px 0px 0px rgba(255, 255, 255, 0.5);
+}
+
+.header-text p {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+/* Header Cards */
