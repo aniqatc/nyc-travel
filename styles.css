@@ -41,6 +41,10 @@ p {
 	letter-spacing: 0.025rem;
 }
 
+i {
+	font-size: 1.4rem;
+}
+
 /*********************/
 /* Reusable Classes */
 .container {
@@ -50,8 +54,6 @@ p {
 
 /******************/
 /* Header Section */
-
-/* Header Text */
 header {
 	background-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.5) 150%),
 		url(/assets/nyc-landscape.jpg);
@@ -62,16 +64,18 @@ header {
 }
 
 header .container {
-	padding: 100px 40px;
+	padding: 140px 60px 200px 40px;
 	display: flex;
 	gap: 30px;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 }
 
+/* Header Text */
 .header-text {
 	color: #ffffff;
 	flex: 1;
+	max-width: 600px;
 }
 
 .header-text h1 {
@@ -87,9 +91,11 @@ header .container {
 	color: rgba(255, 255, 255, 0.8);
 }
 
+/***************/
 /* Header Cards */
 .header-cards {
 	flex: 1;
+	max-width: 500px;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(3, 1fr);
@@ -103,20 +109,76 @@ header .container {
 	background-color: #cecece;
 }
 
+.header-card span {
+	display: block;
+}
+
+/* Time Card */
 .header-card__time {
-	height: 70%;
+	height: fit-content;
 	align-self: flex-end;
+	background-color: black;
+	color: #fff;
+	border: 1px solid #636363;
+
+	display: flex;
+	justify-content: space-between;
 }
 
+.header-card__time span:first-of-type {
+	font-size: 1.6rem;
+}
+
+.header-card__time span:last-of-type {
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.header-card__time i {
+	align-self: flex-end;
+	color: #a19590;
+}
+
+/* Weather Card */
 .header-card__weather {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	background-color: #bfd0cd;
 }
 
+.header-card__weather span:first-of-type {
+	font-size: 1.6rem;
+}
+
+.header-card__weather span:last-of-type {
+	font-size: 0.9rem;
+}
+
+.header-card__weather-icons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-card__weather-icons img {
+	height: 60px;
+}
+
+.header-card__weather-icons i {
+	align-self: flex-start;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+/* From Location */
 .header-card__fromlocation {
 }
 
+/* To Location */
 .header-card__tolocation {
 }
 
+/********************/
 /* Header Nav Cards */
 .header-nav {
 	grid-column: span 2;
