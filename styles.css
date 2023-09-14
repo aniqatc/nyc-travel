@@ -69,6 +69,7 @@ header .container {
 	gap: 30px;
 	align-items: center;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 /* Header Text */
@@ -97,7 +98,7 @@ header .container {
 	flex: 1;
 	max-width: 500px;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(2, minmax(220px, 1fr));
 	grid-template-rows: repeat(3, 1fr);
 	grid-gap: 8px;
 }
@@ -254,18 +255,19 @@ header .container {
 
 .header-card__tolocation p {
 	align-self: flex-end;
+	text-align: end;
 }
 
 .header-card__tolocation span:first-of-type {
 	display: inline;
 	font-weight: 600;
 	color: #fff;
+	white-space: nowrap;
 }
 
 .header-card__tolocation div i {
 	font-size: 1.2rem;
 	padding-top: 3px;
-	transform: rotate(-45deg);
 	color: #bfd0cd;
 }
 
@@ -390,3 +392,32 @@ header .container {
 }
 
 /* Aside Form To Search Flights/Hotels */
+
+@media (max-width: 1180px) {
+	.header-text {
+		flex: auto;
+		max-width: 500px;
+	}
+
+	.header-text h1 {
+		font-size: 4.4rem;
+	}
+}
+
+@media (max-width: 580px) {
+	.header-text h1 {
+		font-size: 3.7rem;
+	}
+
+	.header-text p {
+		font-size: 0.9rem;
+	}
+
+	header .container {
+		gap: 40px;
+	}
+
+	.header-card__fromlocation input::placeholder {
+		font-size: 0.8rem;
+	}
+}
