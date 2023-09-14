@@ -163,9 +163,15 @@ header .container {
 	height: 60px;
 }
 
-.header-card__weather-icons i {
+.header-card__weather-icons a {
 	align-self: flex-start;
 	color: rgba(0, 0, 0, 0.8);
+	transition: all 200ms ease-in;
+}
+
+.header-card__weather-icons a:hover {
+	color: #205169;
+	transform: scale(1.05);
 }
 
 /* Header Flight Cards */
@@ -213,6 +219,10 @@ header .container {
 	width: fit-content;
 }
 
+.header-card__fromlocation input:focus::placeholder {
+	opacity: 0.5;
+}
+
 #search-airport,
 #search-location {
 	background-color: transparent;
@@ -243,8 +253,6 @@ header .container {
 
 .header-card__tolocation p {
 	align-self: flex-end;
-	font-weight: 400;
-	color: rgba(255, 255, 255, 0.8);
 }
 
 .header-card__tolocation span {
@@ -257,6 +265,7 @@ header .container {
 	font-size: 1.2rem;
 	padding-top: 3px;
 	transform: rotate(-45deg);
+	color: #bfd0cd;
 }
 
 /********************/
@@ -304,3 +313,5 @@ header .container {
 	transform: translate(-50%, -50%) rotate(90deg);
 	transition: all 200ms ease-in;
 }
+
+/* Aside Form To Search Flights/Hotels */
