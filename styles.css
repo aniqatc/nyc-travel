@@ -21,9 +21,9 @@ body {
 }
 
 input,
-select,
 button {
 	font: inherit;
+	transform: scale(1);
 }
 
 img,
