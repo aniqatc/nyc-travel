@@ -542,13 +542,18 @@ aside span {
 	gap: 18px;
 }
 
+/* EXPERIENCE SECTION */
 .about-card__experience {
-	padding: 16px 24px;
+	padding: 16px 24px 24px 24px;
 	border-radius: 8px;
 	background-color: #1d292f;
 	color: #fff;
 	flex: 1;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.about-card__experience:nth-of-type(2) {
+	background-color: #475c66;
 }
 
 .about-card__experience-gallery {
@@ -593,6 +598,55 @@ aside span {
 .gallery-img-wrapper:hover img {
 	filter: blur(2px) opacity(0.8) grayscale(1);
 	transform: scale(1.2);
+}
+
+/* ENTERTAINMENT SECTION */
+.entertainment-card-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin-top: 8px;
+	gap: 8px;
+}
+
+.entertainment-card:nth-of-type(1),
+.entertainment-card:nth-of-type(4),
+.entertainment-card:nth-of-type(5),
+.entertainment-card:nth-of-type(8) {
+	grid-column: span 2;
+}
+
+.entertainment-card {
+	background-color: #ffffff;
+	color: #070707;
+	padding: 8px;
+	border-radius: 4px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.entertainment-card__heading {
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.entertainment-card__caption {
+	font-size: 0.8rem;
+}
+
+.entertainment-card__btn {
+	align-self: flex-end;
+	background-color: #1d292f;
+	color: #fff;
+	font-size: 0.9rem;
+	padding: 4px 8px;
+	border-radius: 4px;
+	transition: all 200ms ease-in;
+}
+
+.entertainment-card__btn:hover {
+	background-color: #475c66;
 }
 
 /***********************/
