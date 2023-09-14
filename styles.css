@@ -437,7 +437,7 @@ aside span {
 	padding: 4px 20px;
 	border: none;
 	border-radius: 4px;
-	background-color: #1d292f;
+	background-color: #3a4c54;
 	color: #fff;
 	cursor: pointer;
 	transition: all 200ms ease-in;
@@ -510,6 +510,12 @@ aside span {
 	header .container {
 		gap: 40px;
 	}
+
+	aside .container {
+		width: 100%;
+		padding: 12px 40px 20px;
+		border-radius: 0;
+	}
 }
 
 @media (max-width: 500px) {
@@ -564,16 +570,29 @@ aside span {
 	}
 }
 
-@media (max-width: 380px) {
+@media (max-width: 420px) {
 	.header-text h1 {
 		font-size: 2.6rem;
 	}
 
 	header .container {
-		padding: 80px 10px;
+		padding: 100px 10px;
 	}
 
 	.airport-code {
 		font-size: 3.2rem;
+	}
+
+	aside .container {
+		padding: 10px 10px;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		background-color: #1d292f;
+	}
+
+	#flight-form__button {
+		width: 100%;
+		margin-top: 8px;
 	}
 }
