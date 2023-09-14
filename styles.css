@@ -481,13 +481,15 @@ aside span {
 
 .about-data-wrapper {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 12px;
+	grid-template-columns: minmax(200px, 1fr) auto minmax(400px, 1fr);
+	gap: 18px;
+	align-items: center;
 }
 
 .about-card__text {
 	font-size: 0.9rem;
 	padding: 16px 0;
+	align-self: flex-start;
 }
 
 .about-card__data {
@@ -498,15 +500,13 @@ aside span {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	justify-content: space-between;
-}
-
-.about-card__data-population {
+	height: 225px;
 }
 
 .about-card__data-population p {
 	font-size: 2.8rem;
 	font-weight: 700;
+	white-space: nowrap;
 }
 
 .about-card__data-population span {
@@ -527,10 +527,22 @@ aside span {
 	gap: 8px;
 }
 
+.about-card__flags {
+	font-size: 1.2rem;
+}
+
 .about-experience-wrapper {
+	margin: 12px auto;
+	display: flex;
+	gap: 18px;
 }
 
 .about-card__experience {
+	padding: 16px 24px;
+	border-radius: 8px;
+	background-color: #1d292f;
+	color: #fff;
+	flex: 1;
 }
 
 /***********************/
