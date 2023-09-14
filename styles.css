@@ -590,8 +590,21 @@ aside span {
 		gap: 8px;
 	}
 
+	aside span {
+		flex-direction: row;
+		align-items: center;
+	}
+
 	#flight-form__button {
 		width: 100%;
 		margin-top: 8px;
+	}
+
+	.flight-form__label {
+		flex: 1;
+	}
+
+	.flight-form__input {
+		flex: 2;
 	}
 }
