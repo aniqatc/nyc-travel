@@ -63,7 +63,7 @@ header {
 }
 
 header .container {
-	padding: 150px 60px 150px 40px;
+	padding: 180px 60px 180px 40px;
 	display: flex;
 	gap: 30px;
 	align-items: center;
@@ -396,7 +396,7 @@ aside .container {
 	padding: 12px 40px 20px;
 	backdrop-filter: blur(2px);
 	margin-top: -50px;
-	border-radius: 10px;
+	border-radius: 8px;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 8px;
@@ -460,6 +460,77 @@ aside span {
 
 #flight-form__button:hover i {
 	transform: translateX(6px);
+}
+
+/********************************/
+/* ABOUT SECTION */
+.about.container {
+	padding: 80px;
+}
+
+.about h2 {
+	font-size: 3.8rem;
+	border-bottom: 1px solid #000;
+	width: fit-content;
+	margin-bottom: 24px;
+}
+
+.about h3 {
+	font-size: 1.2rem;
+}
+
+.about-data-wrapper {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
+}
+
+.about-card__text {
+	font-size: 0.9rem;
+	padding: 16px 0;
+}
+
+.about-card__data {
+	background-color: #fff;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	padding: 16px 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	justify-content: space-between;
+}
+
+.about-card__data-population {
+}
+
+.about-card__data-population p {
+	font-size: 2.8rem;
+	font-weight: 700;
+}
+
+.about-card__data-population span {
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: #636363;
+}
+
+.about-card__data-population a {
+	color: #5f7d8a;
+	font-size: 0.75rem;
+	text-decoration: underline;
+}
+
+.about-card__data-heading {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.about-experience-wrapper {
+}
+
+.about-card__experience {
 }
 
 /***********************/
