@@ -44,6 +44,13 @@ i {
 	font-size: 1.4rem;
 }
 
+section h2 {
+	font-size: 3.8rem;
+	border-bottom: 1px solid #000;
+	width: fit-content;
+	margin-bottom: 24px;
+}
+
 /*********************/
 /* Reusable Classes */
 .container {
@@ -464,15 +471,8 @@ aside span {
 
 /********************************/
 /* ABOUT SECTION */
-.about.container {
+.about {
 	padding: 80px;
-}
-
-.about h2 {
-	font-size: 3.8rem;
-	border-bottom: 1px solid #000;
-	width: fit-content;
-	margin-bottom: 24px;
 }
 
 .about h3 {
@@ -549,7 +549,6 @@ aside span {
 	background-color: #1d292f;
 	color: #fff;
 	flex: 1;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 .about-card__experience:nth-of-type(2) {
@@ -646,7 +645,103 @@ aside span {
 }
 
 .entertainment-card__btn:hover {
-	background-color: #475c66;
+	background-color: #bfd0cd;
+	color: #000;
+}
+
+/***********************/
+/* TOP DESTINATION SECTION */
+.destinations {
+	padding: 20px 80px;
+}
+
+.destination-card-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 16px;
+}
+
+.destination-card {
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	background-color: #fff;
+}
+
+.destination-card__content h3 {
+	margin-bottom: 4px;
+	font-size: 1.4rem;
+}
+
+.destination-card__content p {
+	font-size: 0.9rem;
+	margin-bottom: 16px;
+	color: #444444;
+}
+
+.destination-card__img-wrapper {
+	margin-bottom: 16px;
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.destination-card__img-wrapper img {
+	border-radius: 4px;
+	object-fit: cover;
+	aspect-ratio: 2 / 1;
+	grid-column: span 2;
+	filter: sepia(10%) grayscale(50%);
+	transition: all 300ms ease-out;
+}
+
+.destination-map {
+	aspect-ratio: 1/1;
+	border-radius: 4px;
+}
+
+.toggle-map {
+	background-color: #205169;
+	color: #fff;
+	padding: 8px 16px;
+	width: fit-content;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 200ms ease-in;
+	font-size: 0.8rem;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.toggle-map i {
+	font-size: 1rem;
+}
+
+.toggle-map:hover {
+	background-color: #bfd0cd;
+	color: #000;
+}
+
+.destination-card__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.destination-card__rating i {
+	color: #205169;
+	margin-bottom: 4px;
+}
+
+.destination-card__rating p {
+	font-weight: bolder;
+}
+
+.destination-card__rating small {
+	font-weight: lighter;
+	color: #636363;
 }
 
 /***********************/
