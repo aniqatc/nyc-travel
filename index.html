@@ -57,7 +57,7 @@
 								maxlength="3"
 								pattern="[A-Za-z]+"
 							/>
-							<button id="search-airport">
+							<button type="submit" id="search-airport">
 								<i class="fa-solid fa-magnifying-glass"></i>
 							</button>
 							<button id="search-location">
@@ -116,8 +116,43 @@
 					</nav>
 				</div>
 			</div>
-			<aside></aside>
 		</header>
+		<aside>
+			<div class="container">
+				<span>
+					<label for="departure" class="flight-form__label">Departure</label>
+					<input
+						id="departure"
+						type="date"
+						class="flight-form__input"
+						min="2023-09-13"
+						required
+				/></span>
+				<span>
+					<label for="arrival" class="flight-form__label">Arrival</label>
+					<input
+						id="arrival"
+						type="date"
+						class="flight-form__input"
+						min="2023-09-13"
+						required /></span
+				><span>
+					<label for="travelers" class="flight-form__label">Travelers</label>
+
+					<input
+						id="travelers"
+						type="number"
+						min="1"
+						max="10"
+						placeholder="#"
+						class="flight-form__input"
+				/></span>
+				<button id="flight-form__button">
+					Search
+					<i class="fa-regular fa-paper-plane"></i>
+				</button>
+			</div>
+		</aside>
 		<main></main>
 		<footer></footer>
 		<script src="/index.js"></script>
