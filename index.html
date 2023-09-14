@@ -49,9 +49,29 @@
 						</p>
 					</div>
 					<div class="header-card header-card__fromlocation">
-						<i class="fa-solid fa-location-dot"></i>
+						<div>
+							<input
+								type="text"
+								placeholder="Search Airport Code"
+								maxlength="3"
+								pattern="[A-Za-z]+"
+							/>
+							<button id="search-airport">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</button>
+							<button id="search-location">
+								<i class="fa-solid fa-location-dot"></i>
+							</button>
+						</div>
+						<p class="airport-code">SFO</p>
 					</div>
-					<div class="header-card header-card__tolocation">JFK</div>
+					<div class="header-card header-card__tolocation">
+						<div>
+							<i class="fa-solid fa-plane"></i>
+							<p>Average Flight: <span>5.5 Hours</span></p>
+						</div>
+						<p class="airport-code">JFK</p>
+					</div>
 					<nav class="header-nav">
 						<div class="header-nav__title">Menu</div>
 						<a href="#"

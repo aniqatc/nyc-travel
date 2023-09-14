@@ -170,12 +170,95 @@ header .container {
 	color: rgba(0, 0, 0, 0.8);
 }
 
+/* Header Flight Cards */
+.header-card__fromlocation,
+.header-card__tolocation {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.header-card__fromlocation div,
+.header-card__tolocation div {
+	display: flex;
+	justify-content: space-between;
+	gap: 4px;
+}
+
+.airport-code {
+	font-size: 4rem;
+	font-weight: 500;
+	line-height: 1;
+}
+
 /* From Location */
 .header-card__fromlocation {
+	background-color: #503e37;
+	color: #fff;
+	position: relative;
+}
+
+.header-card__fromlocation input {
+	width: 75%;
+	background-color: transparent;
+	border: none;
+}
+
+.header-card__fromlocation input {
+	color: white;
+	padding-bottom: 5px;
+}
+
+.header-card__fromlocation input::placeholder {
+	color: rgba(255, 255, 255, 0.8);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	width: fit-content;
+}
+
+#search-airport,
+#search-location {
+	background-color: transparent;
+	border: none;
+	color: rgba(255, 255, 255, 0.6);
+	cursor: pointer;
+	transition: all 200ms ease-in;
+}
+
+#search-airport:hover,
+#search-location:hover {
+	color: #fff;
+}
+
+#search-airport {
+	color: rgba(255, 255, 255, 0.3);
+}
+
+.header-card__fromlocation input:focus + #search-airport {
+	color: #fff;
 }
 
 /* To Location */
 .header-card__tolocation {
+	background-color: #1d292f;
+	color: #fff;
+}
+
+.header-card__tolocation p {
+	align-self: flex-end;
+	font-weight: 400;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.header-card__tolocation span {
+	display: inline;
+	font-weight: 600;
+	color: #fff;
+}
+
+.header-card__tolocation i {
+	font-size: 1.2rem;
+	padding-top: 3px;
+	transform: rotate(-45deg);
 }
 
 /********************/
