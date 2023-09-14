@@ -98,7 +98,7 @@ header .container {
 	flex: 1;
 	max-width: 500px;
 	display: grid;
-	grid-template-columns: repeat(2, minmax(220px, 1fr));
+	grid-template-columns: repeat(2, minmax(210px, 1fr));
 	grid-template-rows: repeat(3, 1fr);
 	grid-gap: 8px;
 }
@@ -402,6 +402,10 @@ header .container {
 	.header-text h1 {
 		font-size: 4.4rem;
 	}
+
+	.header-card__fromlocation input::placeholder {
+		font-size: 0.9rem;
+	}
 }
 
 @media (max-width: 580px) {
@@ -416,8 +420,70 @@ header .container {
 	header .container {
 		gap: 40px;
 	}
+}
 
-	.header-card__fromlocation input::placeholder {
-		font-size: 0.8rem;
+@media (max-width: 500px) {
+	header .container {
+		padding: 100px 20px;
+	}
+
+	.header-text h1 {
+		font-size: 3.2rem;
+	}
+
+	.header-text h1 span {
+		text-shadow: 6px 0px 0px rgba(255, 255, 255, 0.5);
+	}
+
+	.header-cards,
+	.header-nav {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header-card,
+	.header-nav {
+		width: 100%;
+	}
+
+	.header-nav__title {
+		position: static;
+		transform: none;
+		margin-top: 10px;
+	}
+
+	.header-card__fromlocation input {
+		width: 85%;
+	}
+
+	.header-card__tolocation div {
+		flex-direction: column;
+		align-items: end;
+	}
+
+	.dots {
+		right: 50%;
+		left: 50%;
+		top: 75%;
+		transform: translate(-50%, -50%) rotate(90deg);
+	}
+
+	.dots-between:nth-of-type(5),
+	.dots-between:nth-of-type(6) {
+		display: none;
+	}
+}
+
+@media (max-width: 380px) {
+	.header-text h1 {
+		font-size: 2.8rem;
+	}
+
+	header .container {
+		padding: 100px 10px;
+	}
+
+	.airport-code {
+		font-size: 3.2rem;
 	}
 }
