@@ -417,7 +417,7 @@ aside span {
 }
 
 .flight-form__input {
-	width: 100%;
+	min-width: 100%;
 	height: 30px;
 	padding: 4px;
 	background-color: #ececec;
@@ -528,7 +528,7 @@ aside span {
 	}
 
 	.header-text h1 span {
-		text-shadow: 6px 0px 0px rgba(255, 255, 255, 0.5);
+		text-shadow: 4px 0px 0px rgba(255, 255, 255, 0.5);
 	}
 
 	.header-cards,
@@ -572,7 +572,7 @@ aside span {
 
 @media (max-width: 420px) {
 	.header-text h1 {
-		font-size: 2.6rem;
+		font-size: 3rem;
 	}
 
 	header .container {
