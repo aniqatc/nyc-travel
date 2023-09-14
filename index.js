@@ -17,22 +17,25 @@ navLinks.forEach(el =>
 	})
 );
 
-const mapButton = document.querySelector('.toggle-map');
-const map = document.querySelector('.destination-map');
-const destinationImg = document.querySelector(
+const mapButtons = document.querySelectorAll('.toggle-map');
+const maps = document.querySelectorAll('.destination-map');
+const destinationImages = document.querySelectorAll(
 	'.destination-card__img-wrapper img'
 );
 
-mapButton.addEventListener('click', function () {
-	console.log('Button clicked');
-	console.log('map.style.display:', map.style.display);
-	if (map.style.display === 'none') {
-		map.style.display = 'block';
-		destinationImg.style.gridColumn = 'span 1';
-		destinationImg.style.aspectRatio = '1 / 1';
-	} else {
-		map.style.display = 'none';
-		destinationImg.style.gridColumn = 'span 2';
-		destinationImg.style.aspectRatio = '2 / 1';
-	}
+mapButtons.forEach((mapButton, index) => {
+	mapButton.addEventListener('click', function () {
+		const map = maps[index];
+		const img = destinationImages[index];
+
+		if (map.style.display === 'none') {
+			map.style.display = 'block';
+			img.style.gridColumn = 'span 1';
+			img.style.aspectRatio = '1 / 1';
+		} else {
+			map.style.display = 'none';
+			img.style.gridColumn = 'span 2';
+			img.style.aspectRatio = '2 / 1';
+		}
+	});
 });
