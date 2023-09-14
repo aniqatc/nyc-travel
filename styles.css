@@ -289,6 +289,7 @@ header .container {
 	display: flex;
 	justify-content: space-between;
 	font-weight: 500;
+	transition: all 200ms ease-in;
 }
 
 .header-card__nav-light span {
@@ -299,6 +300,15 @@ header .container {
 	background-color: #070707;
 	color: #fff;
 	border: 1px solid #636363;
+	transition: all 200ms ease-in;
+}
+
+.header-card__nav-light:hover {
+	background-color: #bfd0cd;
+}
+
+.header-card__nav-dark:hover {
+	background-color: #494949;
 }
 
 /* Nav Section Title: Menu */
