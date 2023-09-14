@@ -154,23 +154,22 @@ header .container {
 	font-size: 0.9rem;
 }
 
-.header-card__weather-icons {
+.header-card__weather div {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-end;
 }
 
-.header-card__weather-icons img {
+.header-card__weather img {
 	height: 60px;
 }
 
-.header-card__weather-icons a {
-	align-self: flex-start;
-	color: rgba(0, 0, 0, 0.8);
+.header-card__weather a {
+	color: rgba(0, 0, 0, 0.75);
 	transition: all 200ms ease-in;
 }
 
-.header-card__weather-icons a:hover {
+.header-card__weather a:hover {
 	color: #205169;
 	transform: scale(1.05);
 }
@@ -393,17 +392,15 @@ header .container {
 
 /* Aside Form To Search Flights/Hotels */
 aside .container {
-	text-align: center;
 	background-color: #1d292fc3;
 	width: fit-content;
-	padding: 20px 40px;
+	padding: 12px 40px 20px;
 	backdrop-filter: blur(2px);
 	margin-top: -50px;
 	border-radius: 10px;
-	color: white;
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 	gap: 8px;
-	border: 1px solid #ebf1f4;
 }
 
 aside span {
@@ -415,21 +412,17 @@ aside span {
 
 .flight-form__label {
 	font-weight: 500;
-	font-size: 0.9rem;
-	color: #e9e9e9;
+	font-size: 0.8rem;
+	color: #aaacbd;
 }
 
 .flight-form__input {
-	width: 95%;
+	width: 100%;
+	height: 30px;
 	padding: 4px;
 	background-color: #ececec;
 	border: none;
 	border-radius: 4px;
-	margin-right: 20px;
-}
-
-.flight-form__input::placeholder {
-	padding: 4px;
 }
 
 .flight-form__input::-webkit-datetime-edit-month-field,
@@ -441,7 +434,7 @@ aside span {
 }
 
 #flight-form__button {
-	padding: 4px 18px;
+	padding: 4px 20px;
 	border: none;
 	border-radius: 4px;
 	background-color: #1d292f;
@@ -449,18 +442,25 @@ aside span {
 	cursor: pointer;
 	transition: all 200ms ease-in;
 	align-self: flex-end;
-	margin-bottom: 2px; /* temp: fix bug later */
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	white-space: nowrap;
 }
 
 #flight-form__button i {
 	font-size: 1.2rem;
 	padding-left: 4px;
+	transition: all 200ms ease-in;
 }
 
 #flight-form__button:hover {
 	background-color: #bfd0cd;
 	color: #000;
-	transform: scale(1.05);
+}
+
+#flight-form__button:hover i {
+	transform: translateX(6px);
 }
 
 /***********************/
@@ -478,6 +478,23 @@ aside span {
 
 	.header-card__fromlocation input::placeholder {
 		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 750px) {
+	aside .container {
+		grid-template-columns: repeat(3, 1fr);
+		margin-top: -70px;
+	}
+
+	#flight-form__button {
+		grid-column: span 3;
+		justify-content: center;
+		padding: 8px 20px;
+	}
+
+	#flight-form__button:hover {
+		transform: none;
 	}
 }
 
@@ -549,11 +566,11 @@ aside span {
 
 @media (max-width: 380px) {
 	.header-text h1 {
-		font-size: 2.8rem;
+		font-size: 2.6rem;
 	}
 
 	header .container {
-		padding: 100px 10px;
+		padding: 80px 10px;
 	}
 
 	.airport-code {
