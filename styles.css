@@ -462,6 +462,10 @@ aside span {
 	transform: translateX(6px);
 }
 
+input[type='number'] {
+	width: 100%;
+}
+
 /***********************/
 /* MEDIA QUERIES */
 
