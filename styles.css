@@ -446,6 +446,7 @@ aside span {
 	gap: 6px;
 	align-items: center;
 	white-space: nowrap;
+	text-align: center;
 }
 
 #flight-form__button i {
@@ -515,6 +516,7 @@ aside span {
 		width: 100%;
 		padding: 12px 40px 20px;
 		border-radius: 0;
+		background-color: #1d292f;
 	}
 }
 
@@ -588,7 +590,6 @@ aside span {
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
-		background-color: #1d292f;
 	}
 
 	#flight-form__button {
