@@ -105,8 +105,6 @@ header .container {
 .header-card {
 	border-radius: 8px;
 	padding: 12px;
-	/* delete later */
-	background-color: #cecece;
 }
 
 .header-card span {
@@ -276,7 +274,33 @@ header .container {
 	grid-column: span 2;
 }
 
+.header-card__nav-light {
+	background-color: #ebf1f4;
+	display: flex;
+	justify-content: space-between;
+	font-weight: 500;
+}
+
+.header-card__nav-light span {
+	border-bottom: 1px solid #000;
+}
+
+.header-card__nav-dark {
+	background-color: #070707;
+	color: #fff;
+	border: 1px solid #636363;
+}
+
+/* Nav Section Title: Menu */
 .header-nav__title {
 	position: absolute;
-	display: none; /* temp */
+	color: #909090;
+	font-weight: 400;
+	letter-spacing: 0.25rem;
+	text-transform: uppercase;
+	border-bottom: 1px solid #909090;
+	right: -18%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(90deg);
+	transition: all 200ms ease-in;
 }
