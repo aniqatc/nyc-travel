@@ -519,6 +519,11 @@ aside span {
 	color: #5f7d8a;
 	font-size: 0.75rem;
 	text-decoration: underline;
+	transition: all 200ms ease-in;
+}
+
+.about-card__data-population a:hover {
+	color: #1d292f;
 }
 
 .about-card__data-heading {
@@ -543,6 +548,51 @@ aside span {
 	background-color: #1d292f;
 	color: #fff;
 	flex: 1;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.about-card__experience-gallery {
+	margin-top: 8px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+}
+
+.gallery-img-wrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+.gallery-img-wrapper img {
+	border-radius: 4px;
+	transition: all 200ms ease-in;
+	object-fit: cover;
+	height: 100%;
+	filter: sepia(10%) grayscale(50%);
+}
+
+.caption-hover {
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	transition: all 200ms ease-in;
+	transition-delay: 200ms;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.25rem;
+	border-bottom: 1px solid #fff;
+}
+
+.gallery-img-wrapper:hover .caption-hover {
+	opacity: 1;
+}
+
+.gallery-img-wrapper:hover img {
+	filter: blur(2px) opacity(0.8) grayscale(1);
+	transform: scale(1.2);
 }
 
 /***********************/
