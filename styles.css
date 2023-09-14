@@ -180,6 +180,7 @@ header .container {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
+	position: relative;
 }
 
 .header-card__fromlocation div,
@@ -255,13 +256,13 @@ header .container {
 	align-self: flex-end;
 }
 
-.header-card__tolocation span {
+.header-card__tolocation span:first-of-type {
 	display: inline;
 	font-weight: 600;
 	color: #fff;
 }
 
-.header-card__tolocation i {
+.header-card__tolocation div i {
 	font-size: 1.2rem;
 	padding-top: 3px;
 	transform: rotate(-45deg);
@@ -312,6 +313,60 @@ header .container {
 	top: 50%;
 	transform: translate(-50%, -50%) rotate(90deg);
 	transition: all 200ms ease-in;
+}
+
+/* Flight Loading Dots */
+.dots {
+	position: absolute;
+	top: 55%;
+	right: -41%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+
+.dots-to i,
+.dots-from i {
+	font-size: 18px;
+	vertical-align: middle;
+}
+
+.dots-between i {
+	font-size: 8px;
+	vertical-align: middle;
+}
+
+.dots-from,
+.dots-to,
+.dots-between {
+	opacity: 0.3;
+	margin: 0 2px;
+	animation: dots-loading 1.5s ease-in infinite alternate;
+}
+
+.dots-between {
+	animation-delay: 0.5s;
+}
+
+.dots-between:nth-of-type(3) {
+	animation-delay: 0.75s;
+}
+
+.dots-between:nth-of-type(4) {
+	animation-delay: 1s;
+}
+
+.dots-to {
+	color: #99dbfb;
+	animation-delay: 1.5s;
+}
+
+@keyframes dots-loading {
+	0% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 /* Aside Form To Search Flights/Hotels */
