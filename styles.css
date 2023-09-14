@@ -23,7 +23,6 @@ body {
 input,
 button {
 	font: inherit;
-	transform: scale(1);
 }
 
 img,
@@ -587,12 +586,12 @@ aside span {
 	aside .container {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
 	}
 
 	aside span {
 		flex-direction: row;
 		align-items: center;
+		gap: 0;
 	}
 
 	#flight-form__button {
@@ -605,6 +604,7 @@ aside span {
 	}
 
 	.flight-form__input {
+		width: auto;
 		flex: 2;
 	}
 }
