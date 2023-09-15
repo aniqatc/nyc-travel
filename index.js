@@ -54,7 +54,6 @@ fetch('/content/neighborhood.json')
 		const neighborhoodText = document.querySelectorAll(
 			'.neighborhood-card__intro p'
 		);
-
 		const neighborhoodList = document.querySelectorAll(
 			'.neighborhood-card__intro ul'
 		);
