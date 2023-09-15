@@ -894,12 +894,13 @@ button.active-button {
 }
 
 .neighborhood-card__hotel-card img {
-	filter: sepia(20%) grayscale(35%);
+	filter: sepia(20%) grayscale(45%);
 	object-fit: cover;
 	border-radius: 4px;
 	aspect-ratio: 21 / 14;
 	height: 100%;
 	margin: 6px auto;
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
 }
 
 .neighborhood-card__hotel-card {
