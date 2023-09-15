@@ -59,6 +59,10 @@ input::placeholder {
 	color: rgba(0, 0, 0, 0.75);
 }
 
+input:focus::placeholder {
+	opacity: 0.5;
+}
+
 ul {
 	list-style-type: none;
 }
@@ -73,7 +77,7 @@ ul {
 /******************/
 /* Header Section */
 header {
-	background-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.5) 150%),
+	background-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.5) 300%),
 		url(/assets/nyc-landscape.jpg);
 	background-position: center;
 	background-size: cover;
@@ -236,10 +240,7 @@ header .container {
 	color: rgba(255, 255, 255, 0.8);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 	width: fit-content;
-}
-
-.header-card__fromlocation input:focus::placeholder {
-	opacity: 0.5;
+	font-size: 0.9rem;
 }
 
 #search-airport,
@@ -270,22 +271,28 @@ header .container {
 	color: #fff;
 }
 
-.header-card__tolocation p {
+.header-card__tolocation > p {
 	align-self: flex-end;
 	text-align: end;
-}
-
-.header-card__tolocation span:first-of-type {
-	display: inline;
-	font-weight: 600;
-	color: #fff;
-	white-space: nowrap;
 }
 
 .header-card__tolocation div i {
 	font-size: 1.2rem;
 	padding-top: 3px;
 	color: #bfd0cd;
+}
+
+.header-card__tolocation > div p {
+	font-weight: 300;
+	font-size: 0.9rem;
+}
+
+.header-card__tolocation > div span {
+	display: inline;
+	font-weight: 600;
+	color: #fff;
+	white-space: nowrap;
+	font-size: 1rem;
 }
 
 /********************/
@@ -419,6 +426,7 @@ aside .container {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 8px;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 aside span {
@@ -553,10 +561,12 @@ aside span {
 	background-color: #1d292f;
 	color: #fff;
 	flex: 1;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 .about-card__experience:nth-of-type(2) {
 	background-color: #475c66;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 .about-card__experience-gallery {
@@ -758,42 +768,151 @@ aside span {
 }
 /************************/
 /* Tourists Section */
-.tourists {
+.neighborhoods {
 	padding: 80px 80px;
 }
 
-.instagram-gallery-wrapper {
-	margin: 24px auto 16px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 8px;
-}
-
-.instagram-gallery-wrapper iframe {
-	width: 400px;
-	height: 400px;
-}
-
-.tourists a {
+.neighborhoods button {
+	background-color: #fff;
 	display: block;
 	margin: 0 auto;
-	background-color: #205169;
-	color: #fff;
 	padding: 6px 18px;
 	width: fit-content;
 	border-radius: 4px;
 	font-size: 0.8rem;
 	transition: all 200ms ease;
+	border: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border: 1px solid #1d292f;
 }
 
-.tourists a:hover {
+button.active-button {
 	background-color: #bfd0cd;
 	color: #000;
 }
 
-.tourists a:active {
+.neighborhoods a:hover,
+.neighborhoods button:hover {
+	background-color: #bfd0cd;
+	color: #000;
+	border: 1px solid transparent;
+}
+
+.neighborhoods a:active,
+.neighborhoods button:active {
 	transform: scale(0.95);
+}
+
+/* Neighborhood Card */
+.neighborhood-card-wrapper {
+	display: flex;
+	gap: 16px;
+}
+
+.neighborhood-card {
+	position: relative;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	flex: 2;
+}
+
+.neighborhood-card h3 {
+	color: #1d292f;
+	position: absolute;
+	text-transform: uppercase;
+	letter-spacing: 0.25rem;
+	font-weight: 800;
+	font-size: 1.6rem;
+	top: 35%;
+	left: -3%;
+	transform: rotate(-90deg);
+	transform-origin: left center;
+}
+
+.neighborhood-card__intro {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 16px;
+	gap: 24px;
+}
+
+.neighborhood-card__intro a {
+	padding: 6px;
+	border-radius: 4px;
+	font-size: 0.75rem;
+	background-color: #ececec;
+	border: 1px solid transparent;
+	width: fit-content;
+	transition: all 200ms ease;
+}
+
+.neighborhood-card__intro ul {
+	justify-content: flex-end;
+	display: flex;
+	white-space: nowrap;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.neighborhood-card__intro li {
+	margin-top: 8px;
+}
+
+.neighborhood-card__hotel-wrapper {
+	display: flex;
+	flex: 1;
+	gap: 12px;
+	background-color: #fcfcfc;
+	color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+.neighborhood-card__hotels li {
+	margin-bottom: 6px;
+}
+
+.neighborhood-card__hotel-card img {
+	filter: sepia(20%) grayscale(35%);
+	object-fit: cover;
+	border-radius: 4px;
+	height: auto;
+	margin: 4px auto;
+}
+
+.neighborhood-card__hotel-card {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.neighbhorhood-card__hotel-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.neighbhorhood-card__hotel-heading h4 {
+	color: #1d292f;
+	font-size: 1rem;
+}
+
+.neighbhorhood-card__hotel-heading a {
+	font-size: 0.8rem;
+	padding: 2px 6px;
+	border-radius: 4px;
+	background-color: #205169;
+	color: #fff;
+	border: 1px solid transparent;
+}
+
+.neighborhood-card__hotel-contact {
+	font-size: 0.8rem;
+	color: #636363;
 }
 
 /***********************/
@@ -803,7 +922,7 @@ aside span {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 24px;
+	gap: 36px;
 }
 
 .cta h2 {
@@ -817,26 +936,17 @@ aside span {
 	margin-bottom: 12px;
 }
 
-.cta h4 {
-	font-size: 2rem;
-	color: #ebf1f4;
-	margin-bottom: 24px;
-	border-bottom: 1px solid #ebf1f4;
-}
-
-.cta p {
+.cta-text,
+.cta-form-wrapper {
 	width: 500px;
 }
 
-.cta-text,
 .cta-form-wrapper {
-	flex: 1;
-}
-
-.cta-form-wrapper {
-	background-color: #475c66;
+	color: #bfd0cd;
+	background-color: #5a6d76;
 	padding: 24px;
 	border-radius: 8px;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 .cta-form {
@@ -851,7 +961,7 @@ aside span {
 }
 
 .cta-form input {
-	flex: 4;
+	flex: 3;
 	border-radius: 4px;
 	border: none;
 	padding: 4px;
@@ -930,6 +1040,10 @@ footer {
 
 .footer__nyc-links li {
 	margin-top: 6px;
+}
+
+.footer__nyc-links a {
+	font-size: 0.9rem;
 }
 
 .footer__nyc-links a,
