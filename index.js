@@ -42,7 +42,7 @@ mapButtons.forEach((mapButton, index) => {
 	});
 });
 
-/* PULL NEIGHBORHOOD INFO AND POPULATE TO PAGE */
+/* PULL NEIGHBORHOOD INFO AND ADD TO PAGE */
 fetch('/content/neighborhood.json')
 	.then(response => {
 		return response.json();
@@ -74,3 +74,5 @@ fetch('/content/neighborhood.json')
 			}
 		});
 	});
+
+/* PULL HOTEL INFO & ADD TO PAGE */
