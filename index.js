@@ -31,11 +31,11 @@ mapButtons.forEach((mapButton, index) => {
 		if (map.style.display === 'none') {
 			map.style.display = 'block';
 			img.style.gridColumn = 'span 1';
-			img.style.aspectRatio = '1 / 1';
+			img.style.filter = 'grayscale(75%)';
 		} else {
 			map.style.display = 'none';
 			img.style.gridColumn = 'span 2';
-			img.style.aspectRatio = '2 / 1';
+			img.style.filter = 'sepia(10%) grayscale(25%)';
 		}
 	});
 });
