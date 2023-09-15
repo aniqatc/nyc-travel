@@ -790,6 +790,7 @@ aside span {
 button.active-button {
 	background-color: #bfd0cd;
 	color: #000;
+	border: 1px solid transparent;
 }
 
 .neighborhoods a:hover,
@@ -806,36 +807,41 @@ button.active-button {
 
 /* Neighborhood Card */
 .neighborhood-card-wrapper {
-	display: flex;
+	display: grid;
 	gap: 16px;
+	grid-template-columns: 6fr 3fr;
+	margin: 16px auto;
 }
 
 .neighborhood-card {
 	position: relative;
 	background-color: #fff;
 	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 0 8px 8px 8px;
 	flex: 2;
 }
 
 .neighborhood-card h3 {
+	background-color: #fff;
+	padding: 10px 7px;
 	color: #1d292f;
 	position: absolute;
 	text-transform: uppercase;
-	letter-spacing: 0.25rem;
+	letter-spacing: 0.3rem;
 	font-weight: 800;
 	font-size: 1.6rem;
-	top: 35%;
+	top: 129px;
 	left: -3%;
 	transform: rotate(-90deg);
 	transform-origin: left center;
+	z-index: 1;
+	border-radius: 8px 8px 0 0;
 }
 
 .neighborhood-card__intro {
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 16px;
+	justify-content: space-between;
 	gap: 24px;
 }
 
@@ -850,7 +856,7 @@ button.active-button {
 }
 
 .neighborhood-card__intro ul {
-	justify-content: flex-end;
+	align-self: flex-end;
 	display: flex;
 	white-space: nowrap;
 	flex-wrap: wrap;
