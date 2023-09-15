@@ -515,7 +515,8 @@ aside span {
 	padding: 16px 24px;
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	justify-content: space-between;
+	gap: 10px;
 	height: 225px;
 }
 
@@ -548,14 +549,36 @@ aside span {
 	gap: 8px;
 }
 
-.about-card__flags {
-	font-size: 1.2rem;
-}
-
 .about-experience-wrapper {
 	margin: 16px auto;
 	display: flex;
 	gap: 18px;
+}
+
+/* Flags */
+.about-card__flags {
+	font-size: 1.4rem;
+	overflow: hidden;
+}
+
+.about-card__flags li {
+	white-space: nowrap;
+	transform: translateX(-50%);
+	letter-spacing: 0.25rem;
+}
+
+.about-card__flags li:nth-of-type(odd) {
+	animation: marquee 4s infinite ease-in alternate;
+}
+
+.about-card__flags li:nth-of-type(even) {
+	animation: marquee 4s infinite ease-in alternate-reverse;
+}
+
+@keyframes marquee {
+	100% {
+		transform: translateX(0);
+	}
 }
 
 /* EXPERIENCE SECTION */

@@ -1,0 +1,17 @@
+[
+	{
+		"group": "Midtown",
+		"neighborhoods": ["Upper East Side", "Tribeca", "Upper West Side"],
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nulla eos non culpa perspiciatis. Itaque cupiditate, corrupti quam exercitationem assumenda nihil sequi molestiae, perspiciatis dolores magni, quos neque. Neque, ea."
+	},
+	{
+		"group": "Midtown",
+		"neighborhoods": ["Upper East Side", "Tribeca", "Upper West Side"],
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nulla eos non culpa perspiciatis. Itaque cupiditate, corrupti quam exercitationem assumenda nihil sequi molestiae, perspiciatis dolores magni, quos neque. Neque, ea."
+	},
+	{
+		"group": "Midtown",
+		"neighborhoods": ["Upper East Side", "Tribeca", "Upper West Side"],
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nulla eos non culpa perspiciatis. Itaque cupiditate, corrupti quam exercitationem assumenda nihil sequi molestiae, perspiciatis dolores magni, quos neque. Neque, ea."
+	}
+]
