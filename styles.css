@@ -516,7 +516,6 @@ aside span {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	gap: 10px;
 	height: 225px;
 }
 
@@ -557,7 +556,7 @@ aside span {
 
 /* Flags */
 .about-card__flags {
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 	overflow: hidden;
 }
 
@@ -568,11 +567,16 @@ aside span {
 }
 
 .about-card__flags li:nth-of-type(odd) {
-	animation: marquee 4s infinite ease-in alternate;
+	animation: marquee 8s infinite ease-in alternate;
 }
 
 .about-card__flags li:nth-of-type(even) {
-	animation: marquee 4s infinite ease-in alternate-reverse;
+	animation: marquee 8s infinite ease-in alternate-reverse;
+}
+
+.about-card__flags li:hover {
+	animation-play-state: paused;
+	cursor: default;
 }
 
 @keyframes marquee {
@@ -881,14 +885,9 @@ button.active-button {
 	height: 100%;
 }
 
-.neighborhood-card__intro a {
-	padding: 6px;
-	border-radius: 4px;
-	font-size: 0.75rem;
-	background-color: #ececec;
-	border: 1px solid transparent;
-	width: fit-content;
-	transition: all 200ms ease;
+.neighborhood-card__intro p {
+	line-height: 1.5;
+	font-size: 0.95rem;
 }
 
 .neighborhood-card__intro ul {
@@ -897,6 +896,13 @@ button.active-button {
 	white-space: nowrap;
 	flex-wrap: wrap;
 	gap: 6px;
+}
+
+.neighborhood-card__intro li {
+	padding: 6px;
+	border-radius: 4px;
+	font-size: 0.75rem;
+	background-color: #ececec;
 }
 
 .neighborhood-card__hotel-wrapper {

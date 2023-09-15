@@ -1,3 +1,4 @@
+/* MENU LINK */
 const navLinks = document.querySelectorAll('.nav-link');
 const navTitle = document.querySelector('.header-nav__title');
 
@@ -17,6 +18,7 @@ navLinks.forEach(el =>
 	})
 );
 
+/* ADDING MAP TO DESTINATION CARDS */
 const mapButtons = document.querySelectorAll('.toggle-map');
 const maps = document.querySelectorAll('.destination-map');
 const destinationImages = document.querySelectorAll(
@@ -39,3 +41,37 @@ mapButtons.forEach((mapButton, index) => {
 		}
 	});
 });
+
+/* PULL NEIGHBORHOOD INFO AND POPULATE TO PAGE */
+fetch('/content/neighborhood.json')
+	.then(response => {
+		return response.json();
+	})
+	.then(data => {
+		const neighborhoodHeadings = document.querySelectorAll(
+			'.neighborhood-card__heading'
+		);
+		const neighborhoodText = document.querySelectorAll(
+			'.neighborhood-card__intro p'
+		);
+
+		const neighborhoodList = document.querySelectorAll(
+			'.neighborhood-card__intro ul'
+		);
+
+		neighborhoodHeadings.forEach((el, index) => {
+			el.textContent = `${data[index].group}`;
+		});
+
+		neighborhoodText.forEach((el, index) => {
+			el.textContent = `${data[index].description}`;
+		});
+
+		neighborhoodList.forEach((el, index) => {
+			for (let i = 0; i < data[index].neighborhoods.length; i++) {
+				const li = document.createElement('li');
+				li.textContent = `${data[index].neighborhoods[i]}`;
+				el.appendChild(li);
+			}
+		});
+	});
