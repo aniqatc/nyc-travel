@@ -214,7 +214,7 @@ header .container {
 .header-card__tolocation div {
 	display: flex;
 	justify-content: space-between;
-	gap: 4px;
+	gap: 6px;
 }
 
 .airport-code {
@@ -294,7 +294,7 @@ header .container {
 
 .header-card__tolocation > div span {
 	display: inline;
-	font-weight: 600;
+	font-weight: 500;
 	color: #fff;
 	white-space: nowrap;
 	font-size: 1rem;
@@ -831,7 +831,6 @@ button.active-button {
 	position: absolute;
 	text-transform: uppercase;
 	letter-spacing: 0.3rem;
-	border-bottom: 1px solid #1d292f;
 	width: fit-content;
 	font-weight: 800;
 	font-size: 1.6rem;
