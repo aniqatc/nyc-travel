@@ -67,6 +67,11 @@ ul {
 	list-style-type: none;
 }
 
+a,
+button {
+	white-space: nowrap;
+}
+
 /*********************/
 /* Reusable Classes */
 .container {
@@ -463,7 +468,6 @@ aside span {
 	display: flex;
 	gap: 6px;
 	align-items: center;
-	white-space: nowrap;
 }
 
 #flight-form__button i {
@@ -783,7 +787,6 @@ aside span {
 	transition: all 200ms ease;
 	border: none;
 	cursor: pointer;
-	white-space: nowrap;
 	border: 1px solid #1d292f;
 }
 
@@ -816,7 +819,7 @@ button.active-button {
 .neighborhood-card {
 	position: relative;
 	background-color: #fff;
-	padding: 20px;
+	padding: 20px 20px 30px 30px;
 	border-radius: 0 8px 8px 8px;
 	flex: 2;
 }
@@ -828,14 +831,24 @@ button.active-button {
 	position: absolute;
 	text-transform: uppercase;
 	letter-spacing: 0.3rem;
+	border-bottom: 1px solid #1d292f;
+	width: fit-content;
 	font-weight: 800;
 	font-size: 1.6rem;
 	top: 129px;
-	left: -3%;
+	left: -3.5%;
 	transform: rotate(-90deg);
 	transform-origin: left center;
 	z-index: 1;
 	border-radius: 8px 8px 0 0;
+}
+
+.neighborhood-card-wrapper:nth-child(3) .neighborhood-card h3 {
+	top: 145px;
+}
+
+.neighborhood-card-wrapper:nth-child(4) .neighborhood-card h3 {
+	top: 184px;
 }
 
 .neighborhood-card__intro {
@@ -843,6 +856,7 @@ button.active-button {
 	flex-direction: column;
 	justify-content: space-between;
 	gap: 24px;
+	height: 100%;
 }
 
 .neighborhood-card__intro a {
@@ -863,10 +877,6 @@ button.active-button {
 	gap: 6px;
 }
 
-.neighborhood-card__intro li {
-	margin-top: 8px;
-}
-
 .neighborhood-card__hotel-wrapper {
 	display: flex;
 	flex: 1;
@@ -876,30 +886,34 @@ button.active-button {
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	align-items: center;
+	justify-content: center;
 }
 
 .neighborhood-card__hotels li {
-	margin-bottom: 6px;
+	margin-bottom: 4px;
 }
 
 .neighborhood-card__hotel-card img {
 	filter: sepia(20%) grayscale(35%);
 	object-fit: cover;
 	border-radius: 4px;
-	height: auto;
-	margin: 4px auto;
+	aspect-ratio: 21 / 14;
+	height: 100%;
+	margin: 6px auto;
 }
 
 .neighborhood-card__hotel-card {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
 }
 
 .neighbhorhood-card__hotel-heading {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 2px;
 }
 
 .neighbhorhood-card__hotel-heading h4 {
