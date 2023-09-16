@@ -76,3 +76,23 @@ fetch('/content/neighborhood.json')
 	});
 
 /* PULL HOTEL INFO & ADD TO PAGE */
+fetch('/content/hotels.json')
+	.then(response => {
+		return response.json();
+	})
+	.then(data => {
+		const hotelCards = document.querySelectorAll('.neighborhood-card__hotels');
+
+		hotelCards.forEach((card, index) => {
+			const hotelButtons = card.querySelectorAll('.hotel-button');
+
+			hotelButtons.forEach((button, i) => {
+				button.addEventListener('click', function (event) {
+					event.preventDefault();
+
+					hotelButtons.forEach(el => el.classList.remove('active-button'));
+					button.classList.add('active-button');
+				});
+			});
+		});
+	});

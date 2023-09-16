@@ -906,9 +906,13 @@ button.active-button {
 	background-color: #ececec;
 }
 
+.neighborhoods .hotel-button {
+	width: 100%;
+	margin: unset;
+}
+
 .neighborhood-card__hotel-wrapper {
 	display: flex;
-	flex: 1;
 	gap: 12px;
 	background-color: #fcfcfc;
 	color: #fff;
