@@ -2,12 +2,9 @@
 :root {
 	--primary-blue-dark: #1d292f;
 	--primary-blue-muted: #475c66;
-	--secondary-green: 0;
-	--secondary-gray: 0;
 	--accent-blue-light: #bfd0cd;
 	--accent-blue-dark: #205169;
 	--text-muted-dark: #636363;
-	--text-accent: 0;
 	--text-muted-light: #bfbfbf;
 	--border-outer: 8px;
 	--border-inner: 4px;
@@ -64,11 +61,16 @@ input:focus::placeholder {
 a,
 button {
 	white-space: nowrap;
+	cursor: pointer;
 }
 
 a {
 	text-decoration: none;
 	color: inherit;
+}
+
+button:active {
+	transform: scale(0.95);
 }
 
 img,
@@ -282,7 +284,6 @@ header .container {
 	background-color: transparent;
 	border: none;
 	color: var(--text-muted-light);
-	cursor: pointer;
 	transition: var(--standard-transition);
 }
 
@@ -502,7 +503,6 @@ aside span {
 	border-radius: var(--border-inner);
 	background-color: #3a4c54;
 	color: #fff;
-	cursor: pointer;
 	transition: var(--standard-transition);
 	align-self: flex-end;
 
@@ -744,10 +744,6 @@ aside span {
 	color: #000;
 }
 
-.entertainment-card__btn:active {
-	transform: scale(0.9);
-}
-
 /***************************/
 /* TOP DESTINATION SECTION */
 #destinations {
@@ -828,7 +824,6 @@ aside span {
 	width: fit-content;
 	border: none;
 	border-radius: var(--border-inner);
-	cursor: pointer;
 	transition: var(--standard-transition);
 	font-size: 0.8rem;
 
@@ -846,12 +841,8 @@ aside span {
 	color: #000;
 }
 
-.toggle-map-btn:active {
-	transform: scale(0.95);
-}
-
 /************************/
-/* Tourists Section */
+/* Neighborhoods & Hotels Section */
 #neighborhoods {
 	padding: 80px 80px;
 }
@@ -953,9 +944,8 @@ aside span {
 	width: 100%;
 	border-radius: var(--border-inner);
 	font-size: 0.8rem;
-	transition: all 200ms ease;
+	transition: var(--standard-transition);
 	border: none;
-	cursor: pointer;
 	border: 1px solid var(--primary-blue-dark);
 }
 
@@ -980,8 +970,7 @@ aside span {
 	border: 1px solid transparent;
 }
 
-.hotel-booking-btn:active,
-.hotel-button:active {
+.hotel-booking-btn:active {
 	transform: scale(0.95);
 }
 
@@ -1027,8 +1016,8 @@ aside span {
 }
 
 /***********************/
-/* CTA Bottom */
-.cta {
+/* CTA Bottom General Styling + Text */
+#cta {
 	padding: 150px 80px;
 	display: flex;
 	justify-content: center;
@@ -1036,12 +1025,12 @@ aside span {
 	gap: 36px;
 }
 
-.cta h2 {
+#cta h2 {
 	border-bottom: none;
 	margin-bottom: 0;
 }
 
-.cta h3 {
+#cta h3 {
 	font-size: 2.4rem;
 	color: var(--primary-blue-muted);
 	margin-bottom: 12px;
@@ -1052,6 +1041,7 @@ aside span {
 	width: 500px;
 }
 
+/* CTA FORM */
 .cta-form-wrapper {
 	color: var(--accent-blue-light);
 	background-color: var(--primary-blue-muted);
@@ -1066,6 +1056,7 @@ aside span {
 	gap: var(--gap-sm);
 }
 
+/* Each div represents each label & input pair */
 .cta-form > div {
 	display: flex;
 	align-items: center;
@@ -1079,14 +1070,14 @@ aside span {
 	background-color: #ececec;
 }
 
-input:disabled {
+.cta-form input:disabled {
 	background-color: #667a84;
 	border: 1px solid #ececec;
 	cursor: not-allowed;
 }
 
-input:disabled::placeholder {
-	color: #bfbfbf;
+.cta-form input:disabled::placeholder {
+	color: var(--text-muted-light);
 }
 
 .cta-form label {
@@ -1095,29 +1086,24 @@ input:disabled::placeholder {
 	font-size: 0.8rem;
 }
 
+/* CTA Button Styling */
 #cta-button {
 	background-color: var(--primary-blue-dark);
 	color: #fff;
-	border: none;
 	padding: 8px 24px;
 	border-radius: var(--border-inner);
 	width: 100%;
-	cursor: pointer;
 	transition: var(--standard-transition);
+
 	display: flex;
-	gap: 6px;
+	gap: var(--gap-xs);
 	align-items: center;
 	justify-content: center;
-	margin-top: 6px;
 }
 
 #cta-button:hover {
 	background-color: var(--accent-blue-light);
 	color: #000;
-}
-
-#cta-button:active {
-	transform: scale(0.95);
 }
 
 #cta-button i {
@@ -1136,7 +1122,19 @@ footer {
 	color: var(--accent-blue-light);
 }
 
-.footer-content {
+footer h5 {
+	color: #ebf1f4;
+	font-size: 1.4rem;
+	margin-bottom: 12px;
+}
+
+footer p {
+	font-size: 0.9rem;
+	line-height: 1.6;
+	margin-bottom: 12px;
+}
+
+.footer-content-wrapper {
 	display: grid;
 	grid-template-columns: 1fr 2fr 2fr;
 	padding: 80px 80px 60px;
@@ -1145,16 +1143,28 @@ footer {
 	margin: 0 auto;
 }
 
-.footer-content > div {
+/* Each div represents each section that has its own heading */
+.footer-content-wrapper > div {
 	padding: 0 30px;
 }
 
+/* Links & Icon Styling */
 .footer__nyc-links li {
 	margin-top: 6px;
 }
 
 .footer__nyc-links a {
 	font-size: 0.9rem;
+}
+
+.footer__social-icons {
+	margin-top: 24px;
+	display: flex;
+	gap: var(--gap-md);
+}
+
+.footer__social-icons a:hover i {
+	transform: scale(1.1);
 }
 
 .footer__nyc-links a,
@@ -1169,28 +1179,9 @@ footer {
 	text-decoration: underline;
 }
 
-.footer__social-icons {
-	margin-top: 24px;
-	display: flex;
-	gap: var(--gap-md);
-}
-
-.footer__social-icons a:hover i {
-	transform: scale(1.1);
-}
-
-footer h5 {
-	color: #ebf1f4;
-	font-size: 1.4rem;
-	margin-bottom: 12px;
-}
-
-footer p {
-	margin-bottom: 12px;
-	font-size: 0.9rem;
-	line-height: 1.6;
-}
-
+/***********************/
+/***********************/
+/***********************/
 /***********************/
 /* MEDIA QUERIES */
 
@@ -1209,6 +1200,8 @@ footer p {
 	}
 }
 
+/***********************/
+/***********************/
 @media (max-width: 750px) {
 	aside .container {
 		grid-template-columns: repeat(3, 1fr);
@@ -1226,6 +1219,8 @@ footer p {
 	}
 }
 
+/***********************/
+/***********************/
 @media (max-width: 580px) {
 	.header-text h1 {
 		font-size: 3.7rem;
@@ -1247,6 +1242,8 @@ footer p {
 	}
 }
 
+/***********************/
+/***********************/
 @media (max-width: 500px) {
 	header .container {
 		padding: 100px 20px;
@@ -1286,7 +1283,7 @@ footer p {
 		align-items: end;
 	}
 
-	.dots {
+	.loading-dots {
 		right: 50%;
 		left: 50%;
 		top: 75%;
@@ -1299,6 +1296,8 @@ footer p {
 	}
 }
 
+/***********************/
+/***********************/
 @media (max-width: 420px) {
 	.header-text h1 {
 		font-size: 3rem;
