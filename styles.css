@@ -83,7 +83,7 @@ button {
 /* Header Section */
 header {
 	background-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.5) 300%),
-		url(/assets/nyc-landscape.jpg);
+		url(/assets/nyc-landscape.jpeg);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
