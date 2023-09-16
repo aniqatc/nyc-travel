@@ -65,7 +65,7 @@
 	},
 	{
 		"neighborhood": "Midtown",
-		"name": "The Library Hotel",
+		"name": "Library Hotel",
 		"address": "299 Madison Aveneue, E 41st St, New York, NY 10017",
 		"contact": "(212) 983-4500",
 		"img": "/assets/favicon.png",
@@ -89,7 +89,7 @@
 	},
 	{
 		"neighborhood": "Midtown",
-		"name": "Ritz-Carlton Hotel",
+		"name": "Ritz-Carlton",
 		"address": "50 Central Park S, New York, NY 10019",
 		"contact": "(212) 308-9100",
 		"img": "/assets/favicon.png",

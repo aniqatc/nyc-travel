@@ -80,19 +80,20 @@ fetch('/content/hotels.json')
 	.then(response => {
 		return response.json();
 	})
-	.then(data => {
-		const hotelCards = document.querySelectorAll('.neighborhood-card__hotels');
+	.then(data => {});
 
-		hotelCards.forEach((card, index) => {
-			const hotelButtons = card.querySelectorAll('.hotel-button');
+/* Add active to class hotel buttons */
+const hotelCards = document.querySelectorAll('.neighborhood-card__hotels');
 
-			hotelButtons.forEach((button, i) => {
-				button.addEventListener('click', function (event) {
-					event.preventDefault();
+hotelCards.forEach(card => {
+	const hotelButtons = card.querySelectorAll('.hotel-button');
 
-					hotelButtons.forEach(el => el.classList.remove('active-button'));
-					button.classList.add('active-button');
-				});
-			});
+	hotelButtons.forEach(button => {
+		button.addEventListener('click', function (event) {
+			event.preventDefault();
+
+			hotelButtons.forEach(el => el.classList.remove('active-button'));
+			button.classList.add('active-button');
 		});
 	});
+});

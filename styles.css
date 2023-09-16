@@ -807,9 +807,8 @@ aside span {
 .neighborhoods button {
 	background-color: #fff;
 	display: block;
-	margin: 0 auto;
 	padding: 6px 18px;
-	width: fit-content;
+	width: 100%;
 	border-radius: 4px;
 	font-size: 0.8rem;
 	transition: all 200ms ease;
@@ -849,7 +848,6 @@ button.active-button {
 	background-color: #fff;
 	padding: 20px 20px 30px 30px;
 	border-radius: 0 8px 8px 8px;
-	flex: 2;
 }
 
 .neighborhood-card h3 {
@@ -906,17 +904,12 @@ button.active-button {
 	background-color: #ececec;
 }
 
-.neighborhoods .hotel-button {
-	width: 100%;
-	margin: unset;
-}
-
 .neighborhood-card__hotel-wrapper {
 	display: flex;
 	gap: 12px;
 	background-color: #fcfcfc;
 	color: #fff;
-	padding: 20px;
+	padding: 16px;
 	border-radius: 8px;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 	align-items: center;
@@ -940,6 +933,7 @@ button.active-button {
 .neighborhood-card__hotel-card {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 
 .neighbhorhood-card__hotel-heading {
