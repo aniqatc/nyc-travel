@@ -144,8 +144,7 @@ fetch(`${apiWeather}`)
 		weatherEl.textContent = `${Math.round(data.main.temp)}°F`;
 
 		const weatherDescription = document.getElementById('weather-description');
-		console.log(data);
-		weatherDescription.textContent = `${data.weather[0].description} in NYC`;
+		weatherDescription.textContent = `${data.weather[0].description}`;
 
 		const weatherIcon = document.getElementById('weather-icon');
 		fetch('/content/weather.json')

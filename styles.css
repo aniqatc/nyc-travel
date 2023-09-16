@@ -171,6 +171,7 @@ header .container {
 	justify-content: space-between;
 	flex-direction: column;
 	background-color: #bfd0cd;
+	padding-top: 0;
 }
 
 .header-card__weather span:first-of-type {
@@ -185,6 +186,11 @@ header .container {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
+}
+
+.header-card__weather small {
+	align-self: flex-start;
+	padding-top: 12px;
 }
 
 .header-card__weather img {
@@ -696,6 +702,11 @@ aside span {
 	transition: all 200ms ease-in;
 }
 
+.entertainment-card__btn i {
+	font-size: 0.8rem;
+	margin: 2px;
+}
+
 .entertainment-card__btn:hover {
 	background-color: #bfd0cd;
 	color: #000;
@@ -826,6 +837,7 @@ aside span {
 button.active-button {
 	background-color: #bfd0cd;
 	color: #000;
+	font-weight: bold;
 	border: 1px solid transparent;
 }
 
@@ -965,8 +977,8 @@ button.active-button {
 }
 
 .neighborhood-card__hotel-contact {
-	font-size: 0.8rem;
 	color: #636363;
+	font-size: 0.8rem;
 }
 
 /***********************/
