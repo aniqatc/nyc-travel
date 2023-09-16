@@ -80,23 +80,44 @@ fetch('/content/hotels.json')
 	.then(response => {
 		return response.json();
 	})
-	.then(data => {});
+	.then(data => {
+		const hotelHeadings = document.querySelectorAll(
+			'.neighborhood-card__hotel-wrapper h4'
+		);
+		const hotelBookings = document.querySelectorAll('.hotel-booking');
+		const hotelCards = document.querySelectorAll(
+			'.neighborhood-card__hotel-wrapper'
+		);
+		const hotelAddresses = document.querySelectorAll('.hotel-address');
+		const hotelNumbers = document.querySelectorAll('.hotel-number');
+		const hotelImages = document.querySelectorAll(
+			'.neighborhood-card__hotel-card img'
+		);
 
-/* Add active to class hotel buttons */
-const hotelCards = document.querySelectorAll('.neighborhood-card__hotels');
+		hotelCards.forEach((card, index) => {
+			const hotelButtons = card.querySelectorAll('.hotel-button');
+			hotelButtons.forEach(button => {
+				button.addEventListener('click', function (event) {
+					event.preventDefault();
 
-hotelCards.forEach(card => {
-	const hotelButtons = card.querySelectorAll('.hotel-button');
+					hotelButtons.forEach(el => el.classList.remove('active-button'));
+					button.classList.add('active-button');
 
-	hotelButtons.forEach(button => {
-		button.addEventListener('click', function (event) {
-			event.preventDefault();
+					const target = button.getAttribute('data-target');
 
-			hotelButtons.forEach(el => el.classList.remove('active-button'));
-			button.classList.add('active-button');
+					hotelHeadings[index].textContent = `${data[target].name}`;
+					hotelBookings[index].setAttribute('href', `${data[target].booking}`);
+					hotelAddresses[index].textContent = `${data[target].address}`;
+					hotelNumbers[index].textContent = `${data[target].contact}`;
+					hotelImages[index].setAttribute('src', `${data[target].img}`);
+					hotelImages[index].setAttribute(
+						'alt',
+						`Picture of ${data[target].name}`
+					);
+				});
+			});
 		});
 	});
-});
 
 /* Add current time */
 function updateTime() {
