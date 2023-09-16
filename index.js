@@ -130,3 +130,30 @@ fetch('/content/hotels.json')
 			});
 		});
 	});
+
+/* WEATHER CARD LIVE */
+const currentLocation = 'New York';
+const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${currentLocation}&appid=c5589319ae8ab1af9ff0b16018c9f76b&units=imperial`;
+
+fetch(`${apiWeather}`)
+	.then(response => {
+		return response.json();
+	})
+	.then(data => {
+		const weatherEl = document.getElementById('weather');
+		weatherEl.textContent = `${Math.round(data.main.temp)}°F`;
+
+		const weatherIcon = document.getElementById('weather-icon');
+		fetch('/content/weather.json')
+			.then(response => {
+				return response.json();
+			})
+			.then(myIcons => {
+				for (let i = 0; i < myIcons.length; i++) {
+					if (data.weather[0].icon === myIcons[i].icon) {
+						weatherIcon.setAttribute('src', `${myIcons[i].src}`);
+						weatherIcon.setAttribute('alt', `${myIcons[i].alt}`);
+					}
+				}
+			});
+	});
