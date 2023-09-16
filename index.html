@@ -29,7 +29,7 @@
 						quaerat asperiores nam. Sapiente, accusamus.
 					</p>
 				</div>
-				<div class="header-cards">
+				<div class="header-cards-wrapper">
 					<div class="header-card header-card__time">
 						<p>
 							<span id="time"></span>
@@ -60,11 +60,12 @@
 								placeholder="Search Airport Code"
 								maxlength="3"
 								pattern="[A-Za-z]+"
+								id="search-airport-input"
 							/>
-							<button type="submit" id="search-airport">
+							<button type="submit" id="search-airport-btn">
 								<i class="fa-solid fa-magnifying-glass"></i>
 							</button>
-							<button id="search-location">
+							<button id="search-location-btn">
 								<i class="fa-solid fa-location-dot"></i>
 							</button>
 						</div>
@@ -96,7 +97,7 @@
 					<div class="header-card header-card__tolocation">
 						<div>
 							<i class="fa-solid fa-plane"></i>
-							<p>Flight Time: <span>5.5 Hours</span></p>
+							<p>Flight Time: <span id="flight-time">5.5 Hours</span></p>
 						</div>
 						<p class="airport-code">JFK</p>
 					</div>
@@ -157,8 +158,8 @@
 				</button>
 			</form>
 		</aside>
-		<main>
-			<section class="about container" id="about">
+		<main class="container">
+			<section class="about" id="about">
 				<h2>About New York City</h2>
 				<div class="about-data-wrapper">
 					<div class="about-card__text">
@@ -407,7 +408,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="destinations container" id="destinations">
+			<section class="destinations" id="destinations">
 				<h2>Explore Top Destinations</h2>
 				<p>
 					Welcome to our curated guide to the most captivating and unforgettable
@@ -645,7 +646,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="neighborhoods container" id="neighborhoods">
+			<section class="neighborhoods" id="neighborhoods">
 				<h2>Neighborhood & Hotel Guide</h2>
 				<div class="neighborhood-card-wrapper">
 					<div class="neighborhood-card">
@@ -843,7 +844,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="cta container">
+			<section class="cta">
 				<div class="cta-text">
 					<h2>Ready to Visit?</h2>
 					<h3>Book with us.</h3>

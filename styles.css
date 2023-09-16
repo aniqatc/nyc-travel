@@ -1,3 +1,24 @@
+/* Color Palette & Additional Reusable Values */
+:root {
+	--primary-blue-dark: #1d292f;
+	--primary-blue-muted: 0;
+	--secondary-green: 0;
+	--secondary-gray: 0;
+	--accent-blue-light: #bfd0cd;
+	--accent-blue-dark: #205169;
+	--text-muted-dark: 0;
+	--text-accent: 0;
+	--text-muted-light: #bfbfbf;
+	--border-outer: 8px;
+	--border-inner: 4px;
+	--img-filter: sepia(10%) grayscale(40%);
+	--gap-lg: 24px;
+	--gap-md: 16px;
+	--gap-sm: 8px;
+	--standard-transition: all 200ms ease-in;
+	--standard-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
 /* CSS Reset */
 *,
 *::before,
@@ -25,10 +46,9 @@ button {
 	font: inherit;
 }
 
-img,
-iframe {
-	display: block;
-	max-width: 100%;
+a,
+button {
+	white-space: nowrap;
 }
 
 a {
@@ -36,6 +56,17 @@ a {
 	color: inherit;
 }
 
+img,
+iframe {
+	display: block;
+	max-width: 100%;
+}
+
+ul {
+	list-style-type: none;
+}
+
+/* Sitewide Styling */
 p {
 	letter-spacing: 0.025rem;
 }
@@ -44,7 +75,7 @@ i {
 	font-size: 1.4rem;
 }
 
-section h2 {
+h2 {
 	font-size: 3.8rem;
 	border-bottom: 1px solid #000;
 	width: fit-content;
@@ -63,24 +94,14 @@ input:focus::placeholder {
 	opacity: 0.5;
 }
 
-ul {
-	list-style-type: none;
-}
-
-a,
-button {
-	white-space: nowrap;
-}
-
-/*********************/
-/* Reusable Classes */
+/* Reusable Container */
 .container {
 	max-width: 1400px;
 	margin: 0 auto;
 }
 
-/******************/
-/* Header Section */
+/**********************/
+/* Header Background */
 header {
 	background-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.5) 300%),
 		url(/assets/nyc-landscape.jpeg);
@@ -92,6 +113,7 @@ header {
 
 header .container {
 	padding: 180px 60px 180px 40px;
+
 	display: flex;
 	gap: 30px;
 	align-items: center;
@@ -99,11 +121,11 @@ header .container {
 	flex-wrap: wrap;
 }
 
-/* Header Text */
+/* Header Left Section: Text Only */
 .header-text {
+	max-width: 600px;
 	color: #ffffff;
 	flex: 1;
-	max-width: 600px;
 }
 
 .header-text h1 {
@@ -116,22 +138,22 @@ header .container {
 }
 
 .header-text p {
-	color: rgba(255, 255, 255, 0.8);
+	color: var(--text-muted-light);
 }
 
-/***************/
-/* Header Cards */
-.header-cards {
+/****************/
+/* Header Right Section: Cards & Navigation */
+.header-cards-wrapper {
 	flex: 1;
 	max-width: 500px;
 	display: grid;
 	grid-template-columns: repeat(2, minmax(210px, 1fr));
 	grid-template-rows: repeat(3, 1fr);
-	grid-gap: 8px;
+	grid-gap: var(--gap-sm);
 }
 
 .header-card {
-	border-radius: 8px;
+	border-radius: var(--border-outer);
 	padding: 12px;
 }
 
@@ -139,10 +161,11 @@ header .container {
 	display: block;
 }
 
-/* Time Card */
+/* Header Card: TIME */
 .header-card__time {
-	height: fit-content;
 	align-self: flex-end;
+
+	height: fit-content;
 	background-color: black;
 	color: #fff;
 	border: 1px solid #636363;
@@ -151,29 +174,36 @@ header .container {
 	justify-content: space-between;
 }
 
-.header-card__time span:first-of-type {
+.header-card__time #time {
 	font-size: 1.6rem;
 }
 
 .header-card__time span:last-of-type {
 	font-size: 0.9rem;
-	color: rgba(255, 255, 255, 0.8);
+	color: var(--text-muted-light);
 }
 
 .header-card__time i {
 	align-self: flex-end;
-	color: #a19590;
+	color: var(--text-muted-light);
 }
 
-/* Weather Card */
+/* Header Card: WEATHER */
 .header-card__weather {
+	background-color: var(--accent-blue-light);
+
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
-	background-color: #bfd0cd;
 }
 
-.header-card__weather span:first-of-type {
+.header-card__weather #weather-icon {
+	height: 60px;
+	filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25))
+		drop-shadow(-1px -1px 4px rgba(77, 77, 77, 0.3));
+}
+
+.header-card__weather #weather {
 	font-size: 1.6rem;
 }
 
@@ -187,23 +217,16 @@ header .container {
 	align-items: flex-end;
 }
 
-.header-card__weather img {
-	height: 60px;
-	filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25))
-		drop-shadow(-1px -1px 4px rgba(77, 77, 77, 0.3));
-}
-
 .header-card__weather a {
 	color: rgba(0, 0, 0, 0.75);
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 }
 
 .header-card__weather a:hover {
-	color: #205169;
-	transform: scale(1.05);
+	color: var(--accent-blue-dark);
 }
 
-/* Header Flight Cards */
+/* Header Flight Cards (To & From) */
 .header-card__fromlocation,
 .header-card__tolocation {
 	display: flex;
@@ -216,7 +239,7 @@ header .container {
 .header-card__tolocation div {
 	display: flex;
 	justify-content: space-between;
-	gap: 6px;
+	gap: 4px;
 }
 
 .airport-code {
@@ -225,7 +248,7 @@ header .container {
 	line-height: 1;
 }
 
-/* From Location */
+/* Header Card: FROM Location */
 .header-card__fromlocation {
 	background-color: #503e37;
 	color: #fff;
@@ -236,11 +259,9 @@ header .container {
 	width: 75%;
 	background-color: transparent;
 	border: none;
-}
-
-.header-card__fromlocation input {
-	color: white;
+	color: #fff;
 	padding-bottom: 5px;
+	text-transform: uppercase;
 }
 
 .header-card__fromlocation input::placeholder {
@@ -248,45 +269,42 @@ header .container {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 	width: fit-content;
 	font-size: 0.9rem;
+	text-transform: capitalize;
 }
 
-#search-airport,
-#search-location {
+/* Buttons Inside "From" Location Card */
+#search-airport-btn,
+#search-location-btn {
 	background-color: transparent;
 	border: none;
-	color: rgba(255, 255, 255, 0.6);
+	color: var(--text-muted-light);
 	cursor: pointer;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 }
 
-#search-airport:hover,
-#search-location:hover {
+#search-airport-btn:hover,
+#search-location-btn:hover {
 	color: #fff;
 }
 
-#search-airport {
+#search-airport-btn {
 	color: rgba(255, 255, 255, 0.3);
 }
 
-.header-card__fromlocation input:focus + #search-airport {
+.header-card__fromlocation input:focus + #search-airport-btn {
 	color: #fff;
 }
 
-/* To Location */
+/* Header Card: TO Location */
 .header-card__tolocation {
-	background-color: #1d292f;
+	background-color: var(--primary-blue-dark);
 	color: #fff;
 }
 
-.header-card__tolocation > p {
-	align-self: flex-end;
-	text-align: end;
-}
-
-.header-card__tolocation div i {
+.header-card__tolocation i {
 	font-size: 1.2rem;
 	padding-top: 3px;
-	color: #bfd0cd;
+	color: var(--accent-blue-light);
 }
 
 .header-card__tolocation > div p {
@@ -294,7 +312,12 @@ header .container {
 	font-size: 0.9rem;
 }
 
-.header-card__tolocation > div span {
+.header-card__tolocation .airport-code {
+	align-self: flex-end;
+	text-align: end;
+}
+
+.header-card__tolocation #flight-time {
 	display: inline;
 	font-weight: 500;
 	color: #fff;
@@ -322,7 +345,7 @@ header .container {
 	display: flex;
 	justify-content: space-between;
 	font-weight: 500;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 }
 
 .header-card__nav-light span {
@@ -333,11 +356,11 @@ header .container {
 	background-color: #070707;
 	color: #fff;
 	border: 1px solid #636363;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 }
 
 .header-card__nav-light:hover {
-	background-color: #bfd0cd;
+	background-color: var(--accent-blue-light);
 }
 
 .header-card__nav-dark:hover {
@@ -355,7 +378,7 @@ header .container {
 	right: -18%;
 	top: 50%;
 	transform: translate(-50%, -50%) rotate(90deg);
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 }
 
 /* Flight Loading Dots */
@@ -429,11 +452,11 @@ aside .container {
 	padding: 12px 40px 20px;
 	backdrop-filter: blur(2px);
 	margin-top: -50px;
-	border-radius: 8px;
+	border-radius: var(--border-outer);
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 8px;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--standard-shadow);
 }
 
 aside span {
@@ -455,17 +478,17 @@ aside span {
 	padding: 4px;
 	background-color: #ececec;
 	border: none;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 }
 
 #flight-form__button {
 	padding: 4px 20px;
 	border: none;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 	background-color: #3a4c54;
 	color: #fff;
 	cursor: pointer;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 	align-self: flex-end;
 	display: flex;
 	gap: 6px;
@@ -475,11 +498,11 @@ aside span {
 #flight-form__button i {
 	font-size: 1.2rem;
 	padding-left: 4px;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 }
 
 #flight-form__button:hover {
-	background-color: #bfd0cd;
+	background-color: var(--accent-blue-light);
 	color: #000;
 }
 
@@ -512,8 +535,8 @@ aside span {
 
 .about-card__data {
 	background-color: #fff;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-	border-radius: 8px;
+	box-shadow: var(--standard-shadow);
+	border-radius: var(--border-outer);
 	padding: 16px 24px;
 	display: flex;
 	flex-direction: column;
@@ -537,11 +560,11 @@ aside span {
 	color: #5f7d8a;
 	font-size: 0.75rem;
 	text-decoration: underline;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 }
 
 .about-card__data-population a:hover {
-	color: #1d292f;
+	color: var(--primary-blue-dark);
 }
 
 .about-card__data-heading {
@@ -590,16 +613,16 @@ aside span {
 /* EXPERIENCE SECTION */
 .about-card__experience {
 	padding: 16px 24px 24px 24px;
-	border-radius: 8px;
-	background-color: #1d292f;
+	border-radius: var(--border-outer);
+	background-color: var(--primary-blue-dark);
 	color: #fff;
 	flex: 1;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--standard-shadow);
 }
 
 .about-card__experience:nth-of-type(2) {
 	background-color: #475c66;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--standard-shadow);
 }
 
 .about-card__experience-gallery {
@@ -615,11 +638,11 @@ aside span {
 }
 
 .gallery-img-wrapper img {
-	border-radius: 4px;
-	transition: all 200ms ease-in;
+	border-radius: var(--border-inner);
+	transition: var(--standard-transition);
 	object-fit: cover;
 	height: 100%;
-	filter: sepia(10%) grayscale(50%);
+	filter: var(--img-filter);
 }
 
 .caption-hover {
@@ -629,7 +652,7 @@ aside span {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 	transition-delay: 200ms;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -665,7 +688,7 @@ aside span {
 	background-color: #ffffff;
 	color: #070707;
 	padding: 8px;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 
 	display: flex;
 	flex-direction: column;
@@ -684,12 +707,12 @@ aside span {
 
 .entertainment-card__btn {
 	align-self: flex-end;
-	background-color: #1d292f;
+	background-color: var(--primary-blue-dark);
 	color: #fff;
 	font-size: 0.9rem;
 	padding: 4px 8px;
-	border-radius: 4px;
-	transition: all 200ms ease-in;
+	border-radius: var(--border-inner);
+	transition: var(--standard-transition);
 }
 
 .entertainment-card__btn i {
@@ -698,7 +721,7 @@ aside span {
 }
 
 .entertainment-card__btn:hover {
-	background-color: #bfd0cd;
+	background-color: var(--accent-blue-light);
 	color: #000;
 }
 
@@ -721,8 +744,8 @@ aside span {
 
 .destination-card {
 	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	border-radius: var(--border-outer);
+	box-shadow: var(--standard-shadow);
 	background-color: #fff;
 	min-width: 350px;
 }
@@ -747,26 +770,26 @@ aside span {
 
 .destination-card__img-wrapper img {
 	height: 275px;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 	object-fit: cover;
 	grid-column: span 2;
-	filter: sepia(10%) grayscale(25%);
+	filter: var(--img-filter);
 }
 
 .destination-map {
 	height: 275px;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 }
 
 .toggle-map {
-	background-color: #205169;
+	background-color: var(--accent-blue-dark);
 	color: #fff;
 	padding: 8px 16px;
 	width: fit-content;
 	border: none;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 	cursor: pointer;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 	font-size: 0.8rem;
 	display: flex;
 	align-items: center;
@@ -778,7 +801,7 @@ aside span {
 }
 
 .toggle-map:hover {
-	background-color: #bfd0cd;
+	background-color: var(--accent-blue-light);
 	color: #000;
 }
 
@@ -793,7 +816,7 @@ aside span {
 }
 
 .destination-card__rating i {
-	color: #205169;
+	color: var(--accent-blue-dark);
 	margin-bottom: 4px;
 }
 
@@ -816,16 +839,16 @@ aside span {
 	display: block;
 	padding: 6px 18px;
 	width: 100%;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 	font-size: 0.8rem;
 	transition: all 200ms ease;
 	border: none;
 	cursor: pointer;
-	border: 1px solid #1d292f;
+	border: 1px solid var(--primary-blue-dark);
 }
 
 button.active-button {
-	background-color: #bfd0cd;
+	background-color: var(--accent-blue-light);
 	color: #000;
 	font-weight: bold;
 	border: 1px solid transparent;
@@ -833,7 +856,7 @@ button.active-button {
 
 .neighborhoods a:hover,
 .neighborhoods button:hover {
-	background-color: #bfd0cd;
+	background-color: var(--accent-blue-light);
 	color: #000;
 	border: 1px solid transparent;
 }
@@ -861,7 +884,7 @@ button.active-button {
 .neighborhood-card h3 {
 	background-color: #fff;
 	padding: 10px 7px;
-	color: #1d292f;
+	color: var(--primary-blue-dark);
 	position: absolute;
 	text-transform: uppercase;
 	letter-spacing: 0.3rem;
@@ -907,7 +930,7 @@ button.active-button {
 
 .neighborhood-card__intro li {
 	padding: 6px;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 	font-size: 0.75rem;
 	background-color: #ececec;
 }
@@ -918,8 +941,8 @@ button.active-button {
 	background-color: #fcfcfc;
 	color: #fff;
 	padding: 16px;
-	border-radius: 8px;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	border-radius: var(--border-outer);
+	box-shadow: var(--standard-shadow);
 	align-items: center;
 	justify-content: center;
 }
@@ -929,13 +952,13 @@ button.active-button {
 }
 
 .neighborhood-card__hotel-card img {
-	filter: sepia(20%) grayscale(45%);
+	filter: var(--img-filter);
 	object-fit: cover;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 	aspect-ratio: 21 / 14;
 	height: 100%;
 	margin: 6px auto;
-	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--standard-shadow);
 }
 
 .neighborhood-card__hotel-card {
@@ -953,15 +976,15 @@ button.active-button {
 }
 
 .neighbhorhood-card__hotel-heading h4 {
-	color: #1d292f;
+	color: var(--primary-blue-dark);
 	font-size: 1rem;
 }
 
 .neighbhorhood-card__hotel-heading a {
 	font-size: 0.8rem;
 	padding: 2px 6px;
-	border-radius: 4px;
-	background-color: #205169;
+	border-radius: var(--border-inner);
+	background-color: var(--accent-blue-dark);
 	color: #fff;
 	border: 1px solid transparent;
 }
@@ -998,11 +1021,11 @@ button.active-button {
 }
 
 .cta-form-wrapper {
-	color: #bfd0cd;
+	color: var(--accent-blue-light);
 	background-color: #5a6d76;
 	padding: 24px;
-	border-radius: 8px;
-	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+	border-radius: var(--border-outer);
+	box-shadow: var(--standard-shadow);
 }
 
 .cta-form {
@@ -1018,7 +1041,7 @@ button.active-button {
 
 .cta-form input {
 	flex: 3;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 	border: none;
 	padding: 4px;
 	background-color: #ececec;
@@ -1041,14 +1064,14 @@ input:disabled::placeholder {
 }
 
 #cta-button {
-	background-color: #1d292f;
+	background-color: var(--primary-blue-dark);
 	color: #fff;
 	border: none;
 	padding: 8px 24px;
-	border-radius: 4px;
+	border-radius: var(--border-inner);
 	width: 100%;
 	cursor: pointer;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 	display: flex;
 	gap: 6px;
 	align-items: center;
@@ -1057,7 +1080,7 @@ input:disabled::placeholder {
 }
 
 #cta-button:hover {
-	background-color: #bfd0cd;
+	background-color: var(--accent-blue-light);
 	color: #000;
 }
 
@@ -1067,7 +1090,7 @@ input:disabled::placeholder {
 
 #cta-button i {
 	font-size: 1.2rem;
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 }
 
 #cta-button:hover i {
@@ -1077,8 +1100,8 @@ input:disabled::placeholder {
 /**********************/
 /* FOOTER SECTION */
 footer {
-	background-color: #1d292f;
-	color: #bfd0cd;
+	background-color: var(--primary-blue-dark);
+	color: var(--accent-blue-light);
 }
 
 .footer-content {
@@ -1105,7 +1128,7 @@ footer {
 .footer__nyc-links a,
 .footer__social-icons a,
 .footer__social-icons i {
-	transition: all 200ms ease-in;
+	transition: var(--standard-transition);
 }
 
 .footer__nyc-links a:hover,
@@ -1188,7 +1211,7 @@ footer p {
 		width: 100%;
 		padding: 12px 20px 20px;
 		border-radius: 0;
-		background-color: #1d292f;
+		background-color: var(--primary-blue-dark);
 	}
 }
 
@@ -1205,7 +1228,7 @@ footer p {
 		text-shadow: 4px 0px 0px rgba(255, 255, 255, 0.5);
 	}
 
-	.header-cards,
+	.header-cards-wrapper,
 	.header-nav {
 		display: flex;
 		flex-direction: column;
