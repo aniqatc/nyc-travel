@@ -70,26 +70,26 @@
 							</button>
 						</div>
 						<p class="airport-code">SFO</p>
-						<div class="dots">
-							<span class="dots-from"
+						<div class="loading-dots">
+							<span class="dot-start"
 								><i class="fa-regular fa-circle"></i
 							></span>
-							<span class="dots-between"
+							<span class="dot-between"
 								><i class="fa-solid fa-circle"></i
 							></span>
-							<span class="dots-between"
+							<span class="dot-between"
 								><i class="fa-solid fa-circle"></i
 							></span>
-							<span class="dots-between"
+							<span class="dot-between"
 								><i class="fa-solid fa-circle"></i
 							></span>
-							<span class="dots-between"
+							<span class="dot-between"
 								><i class="fa-solid fa-circle"></i
 							></span>
-							<span class="dots-between"
+							<span class="dot-between"
 								><i class="fa-solid fa-circle"></i
 							></span>
-							<span class="dots-to"
+							<span class="dot-end"
 								><i class="fa-regular fa-circle-dot"></i
 							></span>
 						</div>
@@ -103,21 +103,22 @@
 					</div>
 					<nav class="header-nav">
 						<div class="header-nav__title">Menu</div>
-						<a href="#about" class="nav-link"
-							><div class="header-card header-card__nav-light">
+						<a href="#about" class="nav-link">
+							<div class="header-card header-card__nav-light">
 								<span>Everything You Need To Know</span>
-								<i class="fa-solid fa-chevron-down"></i></div
-						></a>
-						<a href="#destinations" class="nav-link"
-							><div class="header-card header-card__nav-dark">
+								<i class="fa-solid fa-chevron-down"></i>
+							</div>
+						</a>
+						<a href="#destinations" class="nav-link">
+							<div class="header-card header-card__nav-dark">
 								Explore Destinations
-							</div></a
-						>
-						<a href="#neighborhoods" class="nav-link"
-							><div class="header-card header-card__nav-dark">
+							</div>
+						</a>
+						<a href="#neighborhoods" class="nav-link">
+							<div class="header-card header-card__nav-dark">
 								Neighborhood & Hotels
-							</div></a
-						>
+							</div>
+						</a>
 					</nav>
 				</div>
 			</div>
@@ -125,43 +126,49 @@
 		<aside>
 			<form class="container">
 				<span>
-					<label for="departure" class="flight-form__label">Departure</label>
+					<label for="header-departure-input" class="flight-form__label"
+						>Departure</label
+					>
 					<input
-						id="departure"
+						id="header-departure-input"
 						type="date"
 						class="flight-form__input"
 						min="2023-09-13"
 						required
 				/></span>
 				<span>
-					<label for="arrival" class="flight-form__label">Arrival</label>
+					<label for="header-arrival-input" class="flight-form__label"
+						>Arrival</label
+					>
 					<input
-						id="arrival"
+						id="header-arrival-input"
 						type="date"
 						class="flight-form__input"
 						min="2023-09-13"
 						required /></span
 				><span>
-					<label for="travelers" class="flight-form__label">Travelers</label>
+					<label for="header-travelers-input" class="flight-form__label"
+						>Travelers</label
+					>
 
 					<input
-						id="travelers"
+						id="header-travelers-input"
 						type="number"
 						min="1"
 						max="10"
 						placeholder="#"
 						class="flight-form__input"
 				/></span>
-				<button id="flight-form__button" type="submit">
+				<button id="flight-form-btn" type="submit">
 					Search Flights
 					<i class="fa-solid fa-arrow-right"></i>
 				</button>
 			</form>
 		</aside>
 		<main class="container">
-			<section class="about" id="about">
+			<section id="about">
 				<h2>About New York City</h2>
-				<div class="about-data-wrapper">
+				<div class="about__data-cards-wrapper">
 					<div class="about-card__text">
 						<p>
 							New York City, often referred to as the "Big Apple," is a
@@ -218,10 +225,10 @@
 						</ul>
 					</div>
 				</div>
-				<div class="about-experience-wrapper">
+				<div class="about__experience-wrapper">
 					<div class="about-card__experience">
 						<h3>Experience The Culture Through Food</h3>
-						<div class="about-card__experience-gallery">
+						<div class="food-gallery-card">
 							<div class="gallery-img-wrapper">
 								<img src="/assets/food/indian.png" alt="" /><span
 									class="caption-hover"
