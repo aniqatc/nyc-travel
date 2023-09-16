@@ -415,7 +415,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="destinations" id="destinations">
+			<section id="destinations">
 				<h2>Explore Top Destinations</h2>
 				<p>
 					Welcome to our curated guide to the most captivating and unforgettable
@@ -457,7 +457,7 @@
 								></span>
 								<p>4.7 <small>(96,635 Reviews)</small></p>
 							</div>
-							<button class="toggle-map">
+							<button class="toggle-map-btn">
 								See Map
 								<i class="fa-solid fa-map-location-dot"></i>
 							</button>
@@ -494,7 +494,7 @@
 								></span>
 								<p>4.6 <small>(28,947 Reviews)</small></p>
 							</div>
-							<button class="toggle-map">
+							<button class="toggle-map-btn">
 								See Map
 								<i class="fa-solid fa-map-location-dot"></i>
 							</button>
@@ -531,7 +531,7 @@
 								></span>
 								<p>4.5 <small>(15,400 Reviews)</small></p>
 							</div>
-							<button class="toggle-map">
+							<button class="toggle-map-btn">
 								See Map
 								<i class="fa-solid fa-map-location-dot"></i>
 							</button>
@@ -569,7 +569,7 @@
 								></span>
 								<p>4.8 <small>(68,553 Reviews)</small></p>
 							</div>
-							<button class="toggle-map">
+							<button class="toggle-map-btn">
 								See Map
 								<i class="fa-solid fa-map-location-dot"></i>
 							</button>
@@ -607,7 +607,7 @@
 								></span>
 								<p>4.7 <small>(95,322 Reviews)</small></p>
 							</div>
-							<button class="toggle-map">
+							<button class="toggle-map-btn">
 								See Map
 								<i class="fa-solid fa-map-location-dot"></i>
 							</button>
@@ -645,7 +645,7 @@
 								></span>
 								<p>4.7 <small>(54,859 Reviews)</small></p>
 							</div>
-							<button class="toggle-map">
+							<button class="toggle-map-btn">
 								See Map
 								<i class="fa-solid fa-map-location-dot"></i>
 							</button>
@@ -653,9 +653,9 @@
 					</div>
 				</div>
 			</section>
-			<section class="neighborhoods" id="neighborhoods">
+			<section id="neighborhoods">
 				<h2>Neighborhood & Hotel Guide</h2>
-				<div class="neighborhood-card-wrapper">
+				<div class="neighborhood-row-wrapper">
 					<div class="neighborhood-card">
 						<h3 class="neighborhood-card__heading"></h3>
 						<div class="neighborhood-card__intro">
@@ -663,8 +663,8 @@
 							<ul></ul>
 						</div>
 					</div>
-					<div class="neighborhood-card__hotel-wrapper">
-						<div class="neighborhood-card__hotels">
+					<div class="hotel-card-wrapper">
+						<div class="hotel-card-buttons-wrapper">
 							<ul>
 								<li>
 									<button class="hotel-button active-button" data-target="0">
@@ -703,24 +703,24 @@
 								</li>
 							</ul>
 						</div>
-						<div class="neighborhood-card__hotel-card">
-							<div class="neighbhorhood-card__hotel-heading">
+						<div class="hotel-card">
+							<div class="hotel-card__heading">
 								<h4>Hotel Belleclaire</h4>
 								<a
 									href="https://www.hotelbelleclaire.com/"
-									class="hotel-booking"
+									class="hotel-booking-btn"
 									>Book Online</a
 								>
 							</div>
 							<img src="/assets/hotels/belleclaire.jpeg" />
-							<div class="neighborhood-card__hotel-contact">
+							<div class="hotel-card__contact">
 								<p class="hotel-address">2175 Broadway, New York, NY 10024</p>
 								<p class="hotel-number">(212) 362-7700</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="neighborhood-card-wrapper">
+				<div class="neighborhood-row-wrapper">
 					<div class="neighborhood-card">
 						<h3 class="neighborhood-card__heading"></h3>
 						<div class="neighborhood-card__intro">
@@ -728,8 +728,8 @@
 							<ul></ul>
 						</div>
 					</div>
-					<div class="neighborhood-card__hotel-wrapper">
-						<div class="neighborhood-card__hotels">
+					<div class="hotel-card-wrapper">
+						<div class="hotel-card-buttons-wrapper">
 							<ul>
 								<li>
 									<button class="hotel-button active-button" data-target="7">
@@ -768,15 +768,17 @@
 								</li>
 							</ul>
 						</div>
-						<div class="neighborhood-card__hotel-card">
-							<div class="neighbhorhood-card__hotel-heading">
+						<div class="hotel-card">
+							<div class="hotel-card__heading">
 								<h4>Baccarat Hotel</h4>
-								<a href="https://www.baccarathotels.com/" class="hotel-booking"
+								<a
+									href="https://www.baccarathotels.com/"
+									class="hotel-booking-btn"
 									>Book Online</a
 								>
 							</div>
 							<img src="/assets/hotels/baccarat.jpeg" />
-							<div class="neighborhood-card__hotel-contact">
+							<div class="hotel-card__contact">
 								<p class="hotel-address">
 									28 West 53rd Street, New York, NY 10019
 								</p>
@@ -785,7 +787,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="neighborhood-card-wrapper">
+				<div class="neighborhood-row-wrapper">
 					<div class="neighborhood-card">
 						<h3 class="neighborhood-card__heading"></h3>
 						<div class="neighborhood-card__intro">
@@ -793,8 +795,8 @@
 							<ul></ul>
 						</div>
 					</div>
-					<div class="neighborhood-card__hotel-wrapper">
-						<div class="neighborhood-card__hotels">
+					<div class="hotel-card-wrapper">
+						<div class="hotel-card-buttons-wrapper">
 							<ul>
 								<li>
 									<button class="hotel-button active-button" data-target="14">
@@ -833,17 +835,17 @@
 								</li>
 							</ul>
 						</div>
-						<div class="neighborhood-card__hotel-card">
-							<div class="neighbhorhood-card__hotel-heading">
+						<div class="hotel-card">
+							<div class="hotel-card__heading">
 								<h4>Crosby Street</h4>
 								<a
 									href="https://www.firmdalehotels.com/hotels/new-york/crosby-street-hotel/"
-									class="hotel-booking"
+									class="hotel-booking-btn"
 									>Book Online</a
 								>
 							</div>
 							<img src="/assets/hotels/crosby.jpeg" />
-							<div class="neighborhood-card__hotel-contact">
+							<div class="hotel-card__contact">
 								<p class="hotel-address">79 Crosby St, New York, NY 10012</p>
 								<p class="hotel-number">(212) 226-6400</p>
 							</div>

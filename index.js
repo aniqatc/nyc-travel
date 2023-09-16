@@ -33,8 +33,35 @@ navLinks.forEach(el =>
 	})
 );
 
+/* WEATHER CARD LIVE */
+const currentLocation = 'New York City';
+const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${currentLocation}&appid=c5589319ae8ab1af9ff0b16018c9f76b&units=imperial`;
+
+fetch(`${apiWeather}`)
+	.then(response => {
+		return response.json();
+	})
+	.then(data => {
+		const weatherEl = document.getElementById('weather');
+		weatherEl.textContent = `${Math.round(data.main.temp)}°F`;
+
+		const weatherIcon = document.getElementById('weather-icon');
+		fetch('/content/weather.json')
+			.then(response => {
+				return response.json();
+			})
+			.then(myIcons => {
+				for (let i = 0; i < myIcons.length; i++) {
+					if (data.weather[0].icon === myIcons[i].icon) {
+						weatherIcon.setAttribute('src', `${myIcons[i].src}`);
+						weatherIcon.setAttribute('alt', `${myIcons[i].alt}`);
+					}
+				}
+			});
+	});
+
 /* ADDING MAP TO DESTINATION CARDS */
-const mapButtons = document.querySelectorAll('.toggle-map');
+const mapButtons = document.querySelectorAll('.toggle-map-btn');
 const maps = document.querySelectorAll('.destination-map');
 const destinationImages = document.querySelectorAll(
 	'.destination-card__img-wrapper img'
@@ -93,18 +120,12 @@ fetch('/content/hotels.json')
 		return response.json();
 	})
 	.then(data => {
-		const hotelHeadings = document.querySelectorAll(
-			'.neighborhood-card__hotel-wrapper h4'
-		);
-		const hotelBookings = document.querySelectorAll('.hotel-booking');
-		const hotelCards = document.querySelectorAll(
-			'.neighborhood-card__hotel-wrapper'
-		);
+		const hotelHeadings = document.querySelectorAll('.hotel-card-wrapper h4');
+		const hotelBookings = document.querySelectorAll('.hotel-booking-btn');
+		const hotelCards = document.querySelectorAll('.hotel-card-wrapper');
 		const hotelAddresses = document.querySelectorAll('.hotel-address');
 		const hotelNumbers = document.querySelectorAll('.hotel-number');
-		const hotelImages = document.querySelectorAll(
-			'.neighborhood-card__hotel-card img'
-		);
+		const hotelImages = document.querySelectorAll('.hotel-card img');
 
 		hotelCards.forEach((card, index) => {
 			const hotelButtons = card.querySelectorAll('.hotel-button');
@@ -129,31 +150,4 @@ fetch('/content/hotels.json')
 				});
 			});
 		});
-	});
-
-/* WEATHER CARD LIVE */
-const currentLocation = 'New York City';
-const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${currentLocation}&appid=c5589319ae8ab1af9ff0b16018c9f76b&units=imperial`;
-
-fetch(`${apiWeather}`)
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		const weatherEl = document.getElementById('weather');
-		weatherEl.textContent = `${Math.round(data.main.temp)}°F`;
-
-		const weatherIcon = document.getElementById('weather-icon');
-		fetch('/content/weather.json')
-			.then(response => {
-				return response.json();
-			})
-			.then(myIcons => {
-				for (let i = 0; i < myIcons.length; i++) {
-					if (data.weather[0].icon === myIcons[i].icon) {
-						weatherIcon.setAttribute('src', `${myIcons[i].src}`);
-						weatherIcon.setAttribute('alt', `${myIcons[i].alt}`);
-					}
-				}
-			});
 	});
