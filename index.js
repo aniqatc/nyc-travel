@@ -97,3 +97,17 @@ hotelCards.forEach(card => {
 		});
 	});
 });
+
+/* Add current time */
+function updateTime() {
+	const timeEl = document.getElementById('time');
+	const date = new Date();
+	const time = date.toLocaleTimeString(undefined, {
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: true,
+	});
+	timeEl.textContent = `${time}`;
+}
+updateTime();
+setTimeout(updateTime, 60000);
