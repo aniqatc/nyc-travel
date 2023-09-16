@@ -27,8 +27,8 @@ navLinks.forEach(el =>
 
 navLinks.forEach(el =>
 	el.addEventListener('mouseleave', function () {
-		navTitle.style.color = '#909090';
-		navTitle.style.borderBottom = '1px solid #909090';
+		navTitle.style.color = '#bfbfbf';
+		navTitle.style.borderBottom = '1px solid #bfbfbf';
 		navTitle.style.fontWeight = '400';
 	})
 );
@@ -120,12 +120,12 @@ fetch('/content/hotels.json')
 		return response.json();
 	})
 	.then(data => {
-		const hotelHeadings = document.querySelectorAll('.hotel-card-wrapper h4');
-		const hotelBookings = document.querySelectorAll('.hotel-booking-btn');
 		const hotelCards = document.querySelectorAll('.hotel-card-wrapper');
+		const hotelHeadings = document.querySelectorAll('.hotel-card-wrapper h4');
+		const hotelImages = document.querySelectorAll('.hotel-card img');
+		const hotelBookings = document.querySelectorAll('.hotel-booking-btn');
 		const hotelAddresses = document.querySelectorAll('.hotel-address');
 		const hotelNumbers = document.querySelectorAll('.hotel-number');
-		const hotelImages = document.querySelectorAll('.hotel-card img');
 
 		hotelCards.forEach((card, index) => {
 			const hotelButtons = card.querySelectorAll('.hotel-button');
@@ -151,3 +151,10 @@ fetch('/content/hotels.json')
 			});
 		});
 	});
+
+/* Write note to use that this website is for practice so reservation was not completed
+-- Add to both top form & cta at the bottom
+*/
+
+/* Get Flight Time to NYC Via Airport Code */
+/* Get Flight Time to NYC Via Geolocation */
