@@ -1,4 +1,19 @@
-/* MENU LINK */
+/* UPDATE TIME */
+function updateTime() {
+	const timeEl = document.getElementById('time');
+	const date = new Date();
+	const time = date.toLocaleTimeString(undefined, {
+		timeZone: 'America/New_York',
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: true,
+	});
+	timeEl.textContent = `${time}`;
+}
+updateTime();
+setTimeout(updateTime, 30000);
+
+/* MENU HOVER STYLING */
 const navLinks = document.querySelectorAll('.nav-link');
 const navTitle = document.querySelector('.header-nav__title');
 
@@ -27,17 +42,14 @@ const destinationImages = document.querySelectorAll(
 
 mapButtons.forEach((mapButton, index) => {
 	mapButton.addEventListener('click', function () {
-		const map = maps[index];
-		const img = destinationImages[index];
-
-		if (map.style.display === 'none') {
-			map.style.display = 'block';
-			img.style.gridColumn = 'span 1';
-			img.style.filter = 'grayscale(75%)';
+		if (maps[index].style.display === 'none') {
+			maps[index].style.display = 'block';
+			destinationImages[index].style.gridColumn = 'span 1';
+			destinationImages[index].style.filter = 'grayscale(75%)';
 		} else {
-			map.style.display = 'none';
-			img.style.gridColumn = 'span 2';
-			img.style.filter = 'sepia(10%) grayscale(25%)';
+			maps[index].style.display = 'none';
+			destinationImages[index].style.gridColumn = 'span 2';
+			destinationImages[index].style.filter = 'sepia(10%) grayscale(25%)';
 		}
 	});
 });
@@ -118,18 +130,3 @@ fetch('/content/hotels.json')
 			});
 		});
 	});
-
-/* Add current time */
-function updateTime() {
-	const timeEl = document.getElementById('time');
-	const date = new Date();
-	const time = date.toLocaleTimeString(undefined, {
-		timeZone: 'America/New_York',
-		hour: '2-digit',
-		minute: '2-digit',
-		hour12: true,
-	});
-	timeEl.textContent = `${time}`;
-}
-updateTime();
-setTimeout(updateTime, 60000);
