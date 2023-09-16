@@ -171,7 +171,6 @@ header .container {
 	justify-content: space-between;
 	flex-direction: column;
 	background-color: #bfd0cd;
-	padding-top: 0;
 }
 
 .header-card__weather span:first-of-type {
@@ -188,19 +187,10 @@ header .container {
 	align-items: flex-end;
 }
 
-.header-card__weather small {
-	align-self: flex-start;
-	padding-top: 12px;
-}
-
 .header-card__weather img {
 	height: 60px;
 	filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25))
 		drop-shadow(-1px -1px 4px rgba(77, 77, 77, 0.3));
-}
-
-#weather-description {
-	text-transform: capitalize;
 }
 
 .header-card__weather a {
