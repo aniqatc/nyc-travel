@@ -103,6 +103,7 @@ function updateTime() {
 	const timeEl = document.getElementById('time');
 	const date = new Date();
 	const time = date.toLocaleTimeString(undefined, {
+		timeZone: 'America/New_York',
 		hour: '2-digit',
 		minute: '2-digit',
 		hour12: true,
