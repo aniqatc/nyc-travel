@@ -145,7 +145,7 @@ fetch('/content/hotels.json')
 					hotelImages[index].setAttribute('src', `${data[target].img}`);
 					hotelImages[index].setAttribute(
 						'alt',
-						`Picture of ${data[target].name}`
+						`Image of ${data[target].name}`
 					);
 				});
 			});
