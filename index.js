@@ -11,7 +11,7 @@ function updateTime() {
 	timeEl.textContent = `${time}`;
 }
 updateTime();
-setTimeout(updateTime, 30000);
+setInterval(updateTime, 30000);
 
 /* MENU HOVER STYLING */
 const navLinks = document.querySelectorAll('.nav-link');
@@ -152,9 +152,52 @@ fetch('/content/hotels.json')
 		});
 	});
 
-/* Write note to use that this website is for practice so reservation was not completed
--- Add to both top form & cta at the bottom
-*/
+/* Get Flight Time to NYC Via Airport Code OR Geolocation */
+const searchCodeBtn = document.getElementById('search-airport-btn');
+const searchCodeInput = document.getElementById('search-airport-input');
+const userGeolocationBtn = document.getElementById('search-location-btn');
 
-/* Get Flight Time to NYC Via Airport Code */
-/* Get Flight Time to NYC Via Geolocation */
+searchCodeBtn.addEventListener('click', function (event) {
+	event.preventDefault();
+
+	getFlightData(searchCodeInput.value);
+});
+
+userGeolocationBtn.addEventListener('click', function (event) {
+	event.preventDefault();
+
+	navigator.geolocation.getCurrentPosition(function (position) {
+		const lat = position.coords.latitude;
+		const lon = position.coords.longitude;
+
+		getFlightData(`${lat}, ${lon}`);
+	});
+});
+
+function getFlightData(userLocation) {
+	const apiFlight = `https://distanceto.p.rapidapi.com/get?route=[{"t":"${userLocation}"},{"t":"JFK"}]&car=false`;
+	const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': 'a9d516e72fmsh7aa5eaca75611e7p172c7djsnf3486d2b2102',
+			'X-RapidAPI-Host': 'distanceto.p.rapidapi.com',
+		},
+	};
+
+	fetch(apiFlight, options)
+		.then(response => response.json())
+		.then(data => {
+			const flightTimeEl = document.getElementById('flight-time');
+			const flightDistanceEl = document.getElementById('flight-distance');
+			const flightStartEl = document.getElementById('airport-start-code');
+
+			flightTimeEl.textContent = `${data.steps[0].distance.flight[0].time}`;
+			flightDistanceEl.textContent = `${Math.round(
+				data.steps[0].distance.flight[0].distance
+			)}km`;
+			flightStartEl.textContent = `${data.steps[0].distance.flight[0].start}`;
+		})
+		.catch(error => {
+			console.log(error);
+		});
+}

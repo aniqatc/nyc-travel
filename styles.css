@@ -241,6 +241,7 @@ header .container {
 	position: relative;
 }
 
+.header-card__fromlocation form,
 .header-card__fromlocation div,
 .header-card__tolocation div {
 	display: flex;
