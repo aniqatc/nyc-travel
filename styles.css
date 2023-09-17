@@ -1446,7 +1446,7 @@ footer p {
 	}
 
 	.about-card__data-population p {
-		align-self: flex-end;
+		align-self: center;
 	}
 
 	/* Neighborhood section changes */
@@ -1520,7 +1520,7 @@ footer p {
 
 	/* Header changes */
 	.header-text h1 {
-		font-size: 3rem;
+		font-size: 2.8rem;
 	}
 
 	header .container {
@@ -1533,6 +1533,11 @@ footer p {
 
 	aside {
 		display: none;
+	}
+
+	/* Header Loading Animation */
+	.loading-dots {
+		top: 60%;
 	}
 
 	/* Experience: Entertainment Changes */
@@ -1550,6 +1555,11 @@ footer p {
 	/* Destination Card Changes */
 	.destination-card-wrapper {
 		padding: 30px 20px;
+	}
+
+	.destination-map,
+	.destination-card__img-wrapper img {
+		height: 225px;
 	}
 
 	.destination-card__content {
