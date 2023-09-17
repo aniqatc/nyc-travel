@@ -33,7 +33,7 @@ navLinks.forEach(el =>
 	})
 );
 
-/* WEATHER CARD LIVE */
+/* PULL WEATHER DATA FROM API FOR WEATHER CARD */
 const currentLocation = 'New York City';
 const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${currentLocation}&appid=c5589319ae8ab1af9ff0b16018c9f76b&units=imperial`;
 
@@ -60,7 +60,7 @@ fetch(`${apiWeather}`)
 			});
 	});
 
-/* ADDING MAP TO DESTINATION CARDS */
+/* MAP BUTTON TOGGLES MAP */
 const mapButtons = document.querySelectorAll('.toggle-map-btn');
 const maps = document.querySelectorAll('.destination-map');
 const destinationImages = document.querySelectorAll(
@@ -81,7 +81,7 @@ mapButtons.forEach((mapButton, index) => {
 	});
 });
 
-/* PULL NEIGHBORHOOD INFO AND ADD TO PAGE */
+/* USE NEIGHBORHOOD.JSON FILE TO PULL CONTENT */
 fetch('/content/neighborhood.json')
 	.then(response => {
 		return response.json();
@@ -114,7 +114,7 @@ fetch('/content/neighborhood.json')
 		});
 	});
 
-/* PULL HOTEL INFO & ADD TO PAGE */
+/* USE HOTELS.JSON FILE TO PULL CONTENT & SWITCH HOTEL INFO BASED ON BUTTON CLICKED */
 fetch('/content/hotels.json')
 	.then(response => {
 		return response.json();
@@ -152,7 +152,7 @@ fetch('/content/hotels.json')
 		});
 	});
 
-/* Get Flight Time to NYC Via Airport Code OR Geolocation */
+/* FLIGHT TIME BASED ON AIRPORT CODE (USER INPUT) OR USER'S GEOLOCATION */
 const searchCodeBtn = document.getElementById('search-airport-btn');
 const searchCodeInput = document.getElementById('search-airport-input');
 const userGeolocationBtn = document.getElementById('search-location-btn');
@@ -174,6 +174,7 @@ userGeolocationBtn.addEventListener('click', function (event) {
 	});
 });
 
+/* Flight Data API Call */
 function getFlightData(userLocation) {
 	const apiFlight = `https://distanceto.p.rapidapi.com/get?route=[{"t":"${userLocation}"},{"t":"JFK"}]&car=false`;
 	const options = {
