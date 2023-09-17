@@ -535,17 +535,17 @@ aside span {
 	padding: 100px 80px;
 }
 
-.about__data-cards-wrapper {
+.about-cards-wrapper {
 	display: grid;
-	grid-template-columns: minmax(200px, 1fr) auto minmax(400px, 1fr);
-	gap: var(--gap-md);
+	grid-template-columns: minmax(250px, 1fr) 2fr;
 	align-items: center;
+	gap: var(--gap-md);
 }
 
 /* About Section: Description */
 .about-card__text {
 	font-size: 0.9rem;
-	padding: 16px 16px 16px 0;
+	padding: 8px 16px 16px 0;
 	align-self: flex-start;
 }
 
@@ -556,6 +556,7 @@ aside span {
 	border-radius: var(--border-outer);
 	height: 225px;
 	padding: 16px 24px;
+	overflow: hidden;
 
 	display: flex;
 	flex-direction: column;
@@ -568,7 +569,14 @@ aside span {
 	gap: var(--gap-sm);
 }
 
+.about-card__data-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--gap-md);
+}
+
 /* About Section: Population Card */
+
 .about-card__data-population p {
 	font-size: 2.8rem;
 	font-weight: 700;
@@ -640,6 +648,10 @@ aside span {
 	box-shadow: var(--standard-shadow);
 }
 
+.about-card__experience h3 {
+	margin-bottom: var(--gap-sm);
+}
+
 .about-card__experience:nth-of-type(2) {
 	background-color: var(--primary-blue-muted);
 	box-shadow: var(--standard-shadow);
@@ -647,10 +659,11 @@ aside span {
 
 /* FOOD GALLERY SECTION */
 .food-gallery-card {
-	margin-top: var(--gap-sm);
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
 	gap: var(--gap-sm);
+	height: 95%;
 }
 
 .gallery-img-wrapper {
@@ -662,8 +675,9 @@ aside span {
 	border-radius: var(--border-inner);
 	transition: var(--standard-transition);
 	object-fit: cover;
-	width: 100%;
+	aspect-ratio: 1 / 1;
 	height: 100%;
+	width: 100%;
 	filter: var(--img-filter);
 }
 
@@ -696,8 +710,8 @@ aside span {
 .entertainment-card-wrapper {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	margin-top: 8px;
-	gap: 8px;
+	gap: var(--gap-sm);
+	height: 95%;
 }
 
 .entertainment-card:nth-of-type(1),
@@ -721,6 +735,7 @@ aside span {
 .entertainment-card__heading {
 	font-size: 1.1rem;
 	font-weight: 600;
+	margin-bottom: 2px;
 }
 
 .entertainment-card__caption {
@@ -886,7 +901,7 @@ aside span {
 }
 
 .neighborhood-row-wrapper:nth-child(3) .neighborhood-card h3 {
-	top: 145px;
+	top: 146px;
 }
 
 .neighborhood-row-wrapper:nth-child(4) .neighborhood-card h3 {
@@ -944,7 +959,7 @@ aside span {
 .hotel-button {
 	background-color: #fff;
 	display: block;
-	padding: 6px 18px;
+	padding: 4px 12px;
 	width: 100%;
 	border-radius: var(--border-inner);
 	font-size: 0.8rem;
@@ -959,7 +974,7 @@ aside span {
 
 .hotel-booking-btn {
 	font-size: 0.8rem;
-	padding: 2px 6px;
+	padding: 4px 12px;
 	border-radius: var(--border-inner);
 	background-color: var(--accent-blue-dark);
 	color: #fff;
@@ -991,6 +1006,7 @@ aside span {
 	border-radius: var(--border-inner);
 	aspect-ratio: 21 / 14;
 	margin: 6px auto;
+	width: 100%;
 	box-shadow: var(--standard-shadow);
 }
 
@@ -1188,8 +1204,17 @@ footer p {
 /***********************/
 /***********************/
 /* MEDIA QUERIES */
+@media (max-width: 1160px) {
+	#about,
+	#destinations,
+	#cta {
+		padding: 100px 30px;
+	}
 
-@media (max-width: 1180px) {
+	#neighborhoods {
+		padding: 100px 30px 100px 60px;
+	}
+
 	.header-text {
 		flex: auto;
 		max-width: 500px;
@@ -1202,11 +1227,67 @@ footer p {
 	.header-card__fromlocation input::placeholder {
 		font-size: 0.9rem;
 	}
+
+	/* ABOUT CARDS */
+	.about-cards-wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	.about-card__data-wrapper {
+		grid-template-columns: min-content 1fr;
+	}
+
+	/* HOTEL CARDS */
+	.hotel-card-wrapper {
+		flex-direction: column-reverse;
+	}
+
+	.hotel-card-buttons-wrapper ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 4px;
+	}
+
+	/* Entertainment & Food Cards */
+	.about__experience-wrapper {
+		grid-template-columns: 1fr;
+	}
 }
 
 /***********************/
 /***********************/
-@media (max-width: 750px) {
+@media (max-width: 780px) {
+	body {
+		background-color: yellow;
+	}
+
+	h2 {
+		font-size: 2.8rem;
+		margin-bottom: 10px;
+	}
+
+	#about,
+	#destinations,
+	#cta {
+		padding: 60px 20px;
+	}
+
+	#cta {
+		padding: 60px 60px 120px;
+	}
+
+	#cta h2 {
+		font-size: 2.4rem;
+	}
+
+	#cta h3 {
+		font-size: 2rem;
+	}
+
+	#neighborhoods {
+		padding: 60px 20px 60px 60px;
+	}
+
 	aside .container {
 		grid-template-columns: repeat(3, 1fr);
 		margin-top: -70px;
@@ -1221,21 +1302,52 @@ footer p {
 	#flight-form-btn:hover {
 		transform: none;
 	}
+
+	.neighborhood-row-wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	.footer-content-wrapper {
+		grid-template-columns: 1fr;
+		padding: 60px 40px;
+	}
+
+	.footer-content-wrapper > div:first-of-type {
+		display: none;
+	}
 }
 
 /***********************/
 /***********************/
+/* .entertainment-card-wrapper {
+		grid-template-columns: 1fr 1fr;
+		height: 95%;
+	}
+
+	.entertainment-card:nth-of-type(1),
+	.entertainment-card:nth-of-type(4),
+	.entertainment-card:nth-of-type(5),
+	.entertainment-card:nth-of-type(8) {
+		grid-column: span 1;
+	} */
+/***********************/
+/***********************/
 @media (max-width: 580px) {
+	body {
+		background-color: violet;
+	}
+
+	header .container {
+		padding: 100px 20px;
+		gap: 40px;
+	}
+
 	.header-text h1 {
-		font-size: 3.7rem;
+		font-size: 3.4rem;
 	}
 
 	.header-text p {
 		font-size: 0.9rem;
-	}
-
-	header .container {
-		gap: 40px;
 	}
 
 	aside .container {
@@ -1243,18 +1355,7 @@ footer p {
 		padding: 12px 20px 20px;
 		border-radius: 0;
 		background-color: var(--primary-blue-dark);
-	}
-}
-
-/***********************/
-/***********************/
-@media (max-width: 500px) {
-	header .container {
-		padding: 100px 20px;
-	}
-
-	.header-text h1 {
-		font-size: 3.2rem;
+		margin-top: -30px;
 	}
 
 	.header-text h1 span {
@@ -1275,7 +1376,7 @@ footer p {
 	.header-nav__title {
 		position: static;
 		transform: none;
-		margin-top: 10px;
+		margin-top: 60px;
 	}
 
 	.header-card__fromlocation input {
@@ -1303,6 +1404,10 @@ footer p {
 /***********************/
 /***********************/
 @media (max-width: 420px) {
+	body {
+		background-color: white;
+	}
+
 	.header-text h1 {
 		font-size: 3rem;
 	}
@@ -1315,7 +1420,7 @@ footer p {
 		font-size: 3.2rem;
 	}
 
-	aside .container {
+	/* aside .container {
 		display: flex;
 		flex-direction: column;
 	}
@@ -1325,6 +1430,10 @@ footer p {
 		align-items: center;
 		justify-content: center;
 		gap: 0;
+	} */
+
+	aside {
+		display: none;
 	}
 
 	#flight-form-btn {
