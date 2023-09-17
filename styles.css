@@ -1256,7 +1256,7 @@ footer p {
 
 /***********************/
 /***********************/
-@media (max-width: 780px) {
+@media (max-width: 800px) {
 	body {
 		background-color: yellow;
 	}
@@ -1267,8 +1267,7 @@ footer p {
 	}
 
 	#about,
-	#destinations,
-	#cta {
+	#destinations {
 		padding: 60px 20px;
 	}
 
@@ -1317,6 +1316,32 @@ footer p {
 	}
 }
 
+@media (max-width: 700px) {
+	body {
+		background-color: violet;
+	}
+
+	header .container {
+		padding: 100px 20px;
+		gap: 40px;
+	}
+
+	.about-card__data-wrapper {
+		grid-template-columns: auto;
+	}
+
+	.about-card__data:first-of-type {
+		flex-direction: row;
+		gap: 4px;
+		height: auto;
+		flex-wrap: wrap;
+	}
+
+	#cta {
+		padding: 150px 80px;
+		flex-direction: column;
+	}
+}
 /***********************/
 /***********************/
 /* .entertainment-card-wrapper {
@@ -1334,12 +1359,7 @@ footer p {
 /***********************/
 @media (max-width: 580px) {
 	body {
-		background-color: violet;
-	}
-
-	header .container {
-		padding: 100px 20px;
-		gap: 40px;
+		background-color: white;
 	}
 
 	.header-text h1 {
@@ -1404,10 +1424,6 @@ footer p {
 /***********************/
 /***********************/
 @media (max-width: 420px) {
-	body {
-		background-color: white;
-	}
-
 	.header-text h1 {
 		font-size: 3rem;
 	}
