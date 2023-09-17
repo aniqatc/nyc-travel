@@ -1257,10 +1257,6 @@ footer p {
 /***********************/
 /***********************/
 @media (max-width: 800px) {
-	body {
-		background-color: yellow;
-	}
-
 	h2 {
 		font-size: 2.8rem;
 		margin-bottom: 10px;
@@ -1273,10 +1269,6 @@ footer p {
 
 	#cta {
 		padding: 60px 60px 120px;
-	}
-
-	#cta h2 {
-		font-size: 2.4rem;
 	}
 
 	#cta h3 {
@@ -1317,10 +1309,6 @@ footer p {
 }
 
 @media (max-width: 700px) {
-	body {
-		background-color: violet;
-	}
-
 	header .container {
 		padding: 100px 20px;
 		gap: 40px;
@@ -1341,25 +1329,17 @@ footer p {
 		padding: 150px 80px;
 		flex-direction: column;
 	}
-}
-/***********************/
-/***********************/
-/* .entertainment-card-wrapper {
-		grid-template-columns: 1fr 1fr;
-		height: 95%;
-	}
 
-	.entertainment-card:nth-of-type(1),
-	.entertainment-card:nth-of-type(4),
-	.entertainment-card:nth-of-type(5),
-	.entertainment-card:nth-of-type(8) {
-		grid-column: span 1;
-	} */
-/***********************/
-/***********************/
+	.cta-text,
+	.cta-form-wrapper {
+		width: 100%;
+	}
+}
+
 @media (max-width: 580px) {
-	body {
-		background-color: white;
+	h2 {
+		font-size: 2.2rem;
+		margin-bottom: var(--gap-md);
 	}
 
 	.header-text h1 {
@@ -1419,11 +1399,69 @@ footer p {
 	.dots-between:nth-of-type(6) {
 		display: none;
 	}
+
+	#neighborhoods {
+		padding: 60px 20px;
+	}
+
+	.neighborhood-card {
+		border-radius: var(--gap-sm);
+		padding: 20px;
+		height: fit-content;
+	}
+
+	.neighborhood-card h3 {
+		position: static;
+		padding: 0;
+		transform: none;
+		border-bottom: 1px solid var(--primary-blue-muted);
+		margin-bottom: var(--gap-md);
+	}
+
+	#cta {
+		padding: 60px 0;
+		flex-direction: column;
+	}
+
+	.cta-text {
+		padding: 0 20px;
+	}
+
+	.cta-form-wrapper {
+		width: 100%;
+		border-radius: 0;
+	}
 }
 
 /***********************/
 /***********************/
 @media (max-width: 420px) {
+	#about,
+	#destinations,
+	#neighborhoods,
+	#cta,
+	.footer-content-wrapper {
+		padding: 30px 0;
+	}
+
+	.footer-content-wrapper {
+		margin-top: 60px;
+	}
+
+	section > h2,
+	section > p,
+	.about-card__text {
+		margin: 10px 10px;
+	}
+
+	.about-card__data {
+		padding: 10px 16px;
+	}
+
+	.about-card__experience {
+		padding: 10px 10px 25px 10px;
+	}
+
 	.header-text h1 {
 		font-size: 3rem;
 	}
@@ -1436,7 +1474,9 @@ footer p {
 		font-size: 3.2rem;
 	}
 
-	/* aside .container {
+	/* 
+	Styling in case I want to bring the form back:
+	aside .container {
 		display: flex;
 		flex-direction: column;
 	}
@@ -1463,5 +1503,53 @@ footer p {
 
 	.flight-form__input {
 		flex: 3;
+	}
+
+	.entertainment-card-wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	.entertainment-card:nth-of-type(1),
+	.entertainment-card:nth-of-type(4),
+	.entertainment-card:nth-of-type(5),
+	.entertainment-card:nth-of-type(8) {
+		grid-column: span 1;
+	}
+
+	.destination-card {
+		min-width: 300px;
+	}
+
+	.destination-card__content {
+		text-align: center;
+	}
+
+	.destination-card__footer {
+		flex-direction: column;
+		gap: var(--gap-sm);
+	}
+
+	.hotel-card-wrapper,
+	.neighborhood-card {
+		width: 100%;
+	}
+
+	.neighborhood-card__intro p,
+	p {
+		font-size: 0.9rem;
+	}
+
+	.hotel-card-buttons-wrapper ul {
+		grid-template-columns: 1fr 1fr;
+		gap: 2px;
+	}
+
+	.hotel-card-buttons-wrapper li:last-child {
+		/* 
+		Adds the last button to the center:
+		grid-column: span 2;
+		margin: 0 auto; */
+
+		display: none;
 	}
 }
