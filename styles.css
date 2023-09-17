@@ -959,13 +959,14 @@ aside span {
 .hotel-button {
 	background-color: #fff;
 	display: block;
-	padding: 4px 12px;
-	width: 100%;
+	padding: 4px;
+	color: #000;
 	border-radius: var(--border-inner);
 	font-size: 0.8rem;
 	transition: var(--standard-transition);
 	border: none;
 	border: 1px solid var(--primary-blue-dark);
+	width: 130px;
 }
 
 .hotel-button.active-button {
@@ -984,8 +985,8 @@ aside span {
 .hotel-button.active-button,
 .hotel-booking-btn:hover,
 .hotel-button:hover {
-	background-color: var(--accent-blue-light);
-	color: #000;
+	background-color: var(--primary-blue-muted);
+	color: #fff;
 	border: 1px solid transparent;
 }
 
