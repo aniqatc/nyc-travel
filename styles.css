@@ -662,6 +662,7 @@ aside span {
 	border-radius: var(--border-inner);
 	transition: var(--standard-transition);
 	object-fit: cover;
+	width: 100%;
 	height: 100%;
 	filter: var(--img-filter);
 }
