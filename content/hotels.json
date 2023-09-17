@@ -56,6 +56,22 @@
 		"booking": "https://www.marriott.com/en-us/hotels/nyclh-aloft-harlem/overview/"
 	},
 	{
+		"neighborhood": "Uptown",
+		"name": "Edge Hotel",
+		"address": "514 W 168th St, New York, NY 10032",
+		"contact": "(212) 543-0005",
+		"img": "/assets/hotels/edge.jpeg",
+		"booking": "https://www.edgehotelnyc.com/"
+	},
+	{
+		"neighborhood": "Uptown",
+		"name": "Marmara",
+		"address": "301 E 94th St, New York, NY 10128",
+		"contact": "(212) 427-3100",
+		"img": "/assets/hotels/marmara.jpeg",
+		"booking": "https://park.marmaranyc.com/"
+	},
+	{
 		"neighborhood": "Midtown",
 		"name": "Baccarat Hotel",
 		"address": "28 West 53rd Street, New York, NY 10019",
@@ -112,6 +128,22 @@
 		"booking": "https://arlohotels.com/midtown/"
 	},
 	{
+		"neighborhood": "Midtown",
+		"name": "Cachet Boutique Hotel",
+		"address": "510 W 42nd St, New York, NY 10036",
+		"contact": "(212) 947-2999",
+		"img": "/assets/hotels/cachet.webp",
+		"booking": "https://www.cachethotelnewyork.com/"
+	},
+	{
+		"neighborhood": "Midtown",
+		"name": "Dream Midtown",
+		"address": "210 W 55th St, New York, NY 10019",
+		"contact": "(212) 247-2000",
+		"img": "/assets/hotels/dream.jpeg",
+		"booking": "https://www.hyatt.com/en-US/hotel/new-york/dream-midtown/nycdm"
+	},
+	{
 		"neighborhood": "Downtown",
 		"name": "Crosby Street",
 		"address": "79 Crosby St, New York, NY 10012",
@@ -166,5 +198,21 @@
 		"contact": "(212) 342-7000",
 		"img": "/assets/hotels/arlo-soho.jpeg",
 		"booking": "https://arlohotels.com/soho/"
+	},
+	{
+		"neighborhood": "Downtown",
+		"name": "NOMO SoHo",
+		"address": "9 Crosby St, New York, NY 10013",
+		"contact": "(646) 218-6400",
+		"img": "/assets/hotels/nomo.jpeg",
+		"booking": "https://www.nomosoho.com/"
+	},
+	{
+		"neighborhood": "Downtown",
+		"name": "The Standard",
+		"address": "848 Washington St, New York, NY 10014",
+		"contact": "(212) 645-4646",
+		"img": "/assets/hotels/standard.jpeg",
+		"booking": "https://www.standardhotels.com/new-york/properties/high-line"
 	}
 ]
