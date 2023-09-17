@@ -83,7 +83,6 @@ ul {
 	list-style-type: none;
 }
 
-/* Sitewide Styling */
 p {
 	letter-spacing: 0.025rem;
 }
@@ -126,7 +125,7 @@ header .container {
 	flex-wrap: wrap;
 }
 
-/*********************************/
+/**********************************/
 /* Header Left Section: Text Only */
 .header-text {
 	max-width: 600px;
@@ -167,6 +166,7 @@ header .container {
 	display: block;
 }
 
+/**********************/
 /* Header Card: TIME */
 .header-card__time {
 	align-self: flex-end;
@@ -194,6 +194,7 @@ header .container {
 	color: var(--text-muted-light);
 }
 
+/*************************/
 /* Header Card: WEATHER */
 .header-card__weather {
 	background-color: var(--accent-blue-light);
@@ -232,6 +233,7 @@ header .container {
 	color: var(--accent-blue-dark);
 }
 
+/************************************/
 /* Header Flight Cards (To & From) */
 .header-card__fromlocation,
 .header-card__tolocation {
@@ -255,6 +257,7 @@ header .container {
 	line-height: 1;
 }
 
+/*******************************/
 /* Header Card: FROM Location */
 .header-card__fromlocation {
 	background-color: #503e37;
@@ -301,6 +304,7 @@ header .container {
 	color: #fff;
 }
 
+/*****************************/
 /* Header Card: TO Location */
 .header-card__tolocation {
 	background-color: var(--primary-blue-dark);
@@ -381,6 +385,7 @@ header .container {
 	background-color: #494949;
 }
 
+/******************************/
 /* Nav Section Title: MENU */
 .header-nav__title {
 	color: var(--text-muted-light);
@@ -484,6 +489,7 @@ aside span {
 	gap: var(--gap-xs);
 }
 
+/******************************/
 /* Flight form inputs & label */
 .flight-form__label {
 	font-weight: 500;
@@ -499,6 +505,7 @@ aside span {
 	border-radius: var(--border-inner);
 }
 
+/**********************/
 /* Flight form button */
 #flight-form-btn {
 	padding: 4px 20px;
@@ -542,12 +549,14 @@ aside span {
 	gap: var(--gap-md);
 }
 
+/******************************/
 /* About Section: Description */
 .about-card__text {
 	font-size: 0.9rem;
 	padding: 8px 16px 16px 0;
 }
 
+/**************************************************/
 /* About Section: Data Cards - Population & Flags */
 .about-card__data {
 	background-color: #fff;
@@ -574,8 +583,8 @@ aside span {
 	gap: var(--gap-md);
 }
 
+/**************************************/
 /* About Section: Population Card */
-
 .about-card__data-population p {
 	font-size: 2.8rem;
 	font-weight: 700;
@@ -599,6 +608,7 @@ aside span {
 	color: var(--primary-blue-dark);
 }
 
+/******************************/
 /* About Section: Flag Card */
 .about-card__flags {
 	font-size: 1.5rem;
@@ -656,6 +666,7 @@ aside span {
 	box-shadow: var(--standard-shadow);
 }
 
+/******************************/
 /* FOOD GALLERY SECTION */
 .food-gallery-card {
 	display: grid;
@@ -705,6 +716,7 @@ aside span {
 	transform: scale(1.2);
 }
 
+/******************************/
 /* ENTERTAINMENT SECTION */
 .entertainment-card-wrapper {
 	display: grid;
@@ -859,7 +871,7 @@ aside span {
 	color: #000;
 }
 
-/************************/
+/********************************/
 /* Neighborhoods & Hotels Section */
 #neighborhoods {
 	padding: 80px 80px;
@@ -872,6 +884,7 @@ aside span {
 	margin: var(--gap-md) auto;
 }
 
+/******************************/
 /* Neighborhood Info Card */
 .neighborhood-card {
 	position: relative;
@@ -936,6 +949,7 @@ aside span {
 	background-color: #ececec;
 }
 
+/**********************/
 /* HOTEL CARDS */
 .hotel-card-wrapper {
 	background-color: #fcfcfc;
@@ -950,6 +964,7 @@ aside span {
 	justify-content: center;
 }
 
+/******************************************************/
 /* Button Styling for Hotel Selection & Booking */
 .hotel-card-buttons-wrapper li {
 	margin-bottom: 4px;
@@ -993,6 +1008,7 @@ aside span {
 	transform: scale(0.95);
 }
 
+/**************************************/
 /* Hotel Content + Images + Footer */
 .hotel-card {
 	display: flex;
@@ -1014,7 +1030,6 @@ aside span {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	/* flex-wrap: wrap; */
 	gap: 2px;
 }
 
@@ -1035,7 +1050,7 @@ aside span {
 	font-size: 0.8rem;
 }
 
-/***********************/
+/***************************************/
 /* CTA Bottom General Styling + Text */
 #cta {
 	padding: 150px 80px;
@@ -1061,6 +1076,7 @@ aside span {
 	width: 500px;
 }
 
+/**********************/
 /* CTA FORM */
 .cta-form-wrapper {
 	color: var(--accent-blue-light);
@@ -1106,6 +1122,7 @@ aside span {
 	font-size: 0.8rem;
 }
 
+/**********************/
 /* CTA Button Styling */
 #cta-button {
 	background-color: var(--primary-blue-dark);
@@ -1206,6 +1223,7 @@ footer p {
 /***********************/
 /* MEDIA QUERIES */
 @media (max-width: 1160px) {
+	/* General Margin/Padding/Size Adjustments */
 	#about,
 	#destinations,
 	#cta {
@@ -1216,6 +1234,7 @@ footer p {
 		padding: 100px 30px 100px 60px;
 	}
 
+	/* Header-specific changes */
 	.header-text {
 		flex: auto;
 		max-width: 500px;
@@ -1229,7 +1248,7 @@ footer p {
 		font-size: 0.9rem;
 	}
 
-	/* ABOUT CARDS */
+	/* About (population & flag cards) changes */
 	.about-cards-wrapper {
 		grid-template-columns: 1fr;
 	}
@@ -1238,7 +1257,7 @@ footer p {
 		grid-template-columns: min-content 1fr;
 	}
 
-	/* HOTEL CARDS */
+	/* Hotel card changes */
 	.hotel-card-wrapper {
 		flex-direction: column-reverse;
 	}
@@ -1249,7 +1268,7 @@ footer p {
 		gap: 4px;
 	}
 
-	/* Entertainment & Food Cards */
+	/* Experience (food & things to do) changes */
 	.about__experience-wrapper {
 		grid-template-columns: 1fr;
 	}
@@ -1258,6 +1277,7 @@ footer p {
 /***********************/
 /***********************/
 @media (max-width: 800px) {
+	/* General adjustments */
 	h2 {
 		font-size: 2.8rem;
 		margin-bottom: 10px;
@@ -1280,6 +1300,7 @@ footer p {
 		padding: 60px 20px 60px 60px;
 	}
 
+	/* Header section form changes */
 	aside .container {
 		grid-template-columns: repeat(3, 1fr);
 		margin-top: -70px;
@@ -1295,10 +1316,12 @@ footer p {
 		transform: none;
 	}
 
+	/* Neighborhood section changes */
 	.neighborhood-row-wrapper {
 		grid-template-columns: 1fr;
 	}
 
+	/* Footer section */
 	.footer-content-wrapper {
 		grid-template-columns: 1fr;
 		padding: 60px 40px;
@@ -1309,21 +1332,13 @@ footer p {
 	}
 }
 
+/***********************/
+/***********************/
 @media (max-width: 700px) {
+	/* Header & CTA (Bottom) Adjustments */
 	header .container {
 		padding: 100px 20px;
 		gap: 40px;
-	}
-
-	.about-card__data-wrapper {
-		grid-template-columns: 1fr;
-	}
-
-	.about-card__data:first-of-type {
-		flex-direction: row;
-		gap: 4px;
-		height: auto;
-		flex-wrap: wrap;
 	}
 
 	#cta {
@@ -1335,9 +1350,24 @@ footer p {
 	.cta-form-wrapper {
 		width: 100%;
 	}
+
+	/* About (population & flag cards) section */
+	.about-card__data-wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	.about-card__data:first-of-type {
+		flex-direction: row;
+		gap: 4px;
+		height: auto;
+		flex-wrap: wrap;
+	}
 }
 
+/***********************/
+/***********************/
 @media (max-width: 580px) {
+	/* General & Header adjustments */
 	h2 {
 		font-size: 2.2rem;
 		margin-bottom: var(--gap-md);
@@ -1351,18 +1381,11 @@ footer p {
 		font-size: 0.9rem;
 	}
 
-	aside .container {
-		width: 100%;
-		padding: 12px 20px 20px;
-		border-radius: 0;
-		background-color: var(--primary-blue-dark);
-		margin-top: -30px;
-	}
-
 	.header-text h1 span {
 		text-shadow: 4px 0px 0px rgba(255, 255, 255, 0.5);
 	}
 
+	/* Header cards */
 	.header-cards-wrapper,
 	.header-nav {
 		display: flex;
@@ -1389,6 +1412,16 @@ footer p {
 		align-items: end;
 	}
 
+	/* Header form */
+	aside .container {
+		width: 100%;
+		padding: 12px 20px 20px;
+		border-radius: 0;
+		background-color: var(--primary-blue-dark);
+		margin-top: -30px;
+	}
+
+	/* Header Loading Animation */
 	.loading-dots {
 		right: 50%;
 		left: 50%;
@@ -1401,6 +1434,7 @@ footer p {
 		display: none;
 	}
 
+	/* About (population & flag cards) adjustments */
 	.about-card__data-wrapper {
 		grid-template-columns: 1fr;
 	}
@@ -1415,6 +1449,7 @@ footer p {
 		align-self: flex-end;
 	}
 
+	/* Neighborhood section changes */
 	#neighborhoods {
 		padding: 60px 20px;
 	}
@@ -1433,6 +1468,7 @@ footer p {
 		margin-bottom: var(--gap-md);
 	}
 
+	/* CTA Form (Bottom) Changes */
 	#cta {
 		padding: 60px 0;
 		flex-direction: column;
@@ -1451,6 +1487,7 @@ footer p {
 /***********************/
 /***********************/
 @media (max-width: 420px) {
+	/* General Sizing/Margin/Padding Adjustments */
 	#about,
 	#destinations,
 	#neighborhoods,
@@ -1481,6 +1518,7 @@ footer p {
 		padding: 10px 10px 25px 10px;
 	}
 
+	/* Header changes */
 	.header-text h1 {
 		font-size: 3rem;
 	}
@@ -1497,19 +1535,7 @@ footer p {
 		display: none;
 	}
 
-	#flight-form-btn {
-		width: 100%;
-		margin-top: 8px;
-	}
-
-	.flight-form__label {
-		flex: 1;
-	}
-
-	.flight-form__input {
-		flex: 3;
-	}
-
+	/* Experience: Entertainment Changes */
 	.entertainment-card-wrapper {
 		grid-template-columns: 1fr;
 	}
@@ -1521,6 +1547,7 @@ footer p {
 		grid-column: span 1;
 	}
 
+	/* Destination Card Changes */
 	.destination-card-wrapper {
 		padding: 30px 20px;
 	}
@@ -1534,6 +1561,7 @@ footer p {
 		gap: var(--gap-sm);
 	}
 
+	/* Neighborhood & Hotel changes */
 	.hotel-card-wrapper,
 	.neighborhood-card {
 		width: 100%;
