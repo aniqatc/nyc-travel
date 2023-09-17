@@ -315,14 +315,16 @@ header .container {
 .header-card__tolocation > div p {
 	font-weight: 300;
 	font-size: 0.9rem;
+	text-align: end;
+	color: var(--accent-blue-light);
 }
 
 .header-card__tolocation .airport-code {
 	align-self: flex-end;
-	text-align: end;
 }
 
-.header-card__tolocation #flight-time {
+.header-card__tolocation #flight-time,
+.header-card__tolocation #flight-distance {
 	display: inline;
 	font-weight: 500;
 	color: #fff;
