@@ -627,7 +627,8 @@ aside span {
 /* EXPERIENCE SECTION */
 .about__experience-wrapper {
 	margin: 16px auto;
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	gap: var(--gap-md);
 }
 
@@ -637,7 +638,6 @@ aside span {
 	background-color: var(--primary-blue-dark);
 	color: #fff;
 	box-shadow: var(--standard-shadow);
-	flex: 1;
 }
 
 .about-card__experience:nth-of-type(2) {
