@@ -546,7 +546,6 @@ aside span {
 .about-card__text {
 	font-size: 0.9rem;
 	padding: 8px 16px 16px 0;
-	align-self: flex-start;
 }
 
 /* About Section: Data Cards - Population & Flags */
@@ -1204,6 +1203,7 @@ footer p {
 /***********************/
 /***********************/
 /***********************/
+/***********************/
 /* MEDIA QUERIES */
 @media (max-width: 1160px) {
 	#about,
@@ -1316,7 +1316,7 @@ footer p {
 	}
 
 	.about-card__data-wrapper {
-		grid-template-columns: auto;
+		grid-template-columns: 1fr;
 	}
 
 	.about-card__data:first-of-type {
@@ -1401,6 +1401,20 @@ footer p {
 		display: none;
 	}
 
+	.about-card__data-wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	.about-card__data-population {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.about-card__data-population p {
+		align-self: flex-end;
+	}
+
 	#neighborhoods {
 		padding: 60px 20px;
 	}
@@ -1452,7 +1466,11 @@ footer p {
 	section > h2,
 	section > p,
 	.about-card__text {
-		margin: 10px 10px;
+		margin: 10px 15px;
+	}
+
+	.about-card__text {
+		padding: 0;
 	}
 
 	.about-card__data {
@@ -1474,20 +1492,6 @@ footer p {
 	.airport-code {
 		font-size: 3.2rem;
 	}
-
-	/* 
-	Styling in case I want to bring the form back:
-	aside .container {
-		display: flex;
-		flex-direction: column;
-	}
-
-	aside span {
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		gap: 0;
-	} */
 
 	aside {
 		display: none;
@@ -1517,8 +1521,8 @@ footer p {
 		grid-column: span 1;
 	}
 
-	.destination-card {
-		min-width: 300px;
+	.destination-card-wrapper {
+		padding: 30px 20px;
 	}
 
 	.destination-card__content {
