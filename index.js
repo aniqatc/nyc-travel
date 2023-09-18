@@ -202,3 +202,13 @@ function getFlightData(userLocation) {
 			console.log(error);
 		});
 }
+
+/* Scroll to bottom of page if header form button clicked */
+const headerFormBtn = document.getElementById('flight-form-btn');
+
+headerFormBtn.addEventListener('click', function (event) {
+	event.preventDefault();
+
+	const target = document.getElementById('cta');
+	target.scrollIntoView({ behavior: 'smooth' });
+});
