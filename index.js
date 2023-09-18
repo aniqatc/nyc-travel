@@ -36,8 +36,8 @@ navLinks.forEach(el =>
 );
 
 /* PULL WEATHER DATA FROM API FOR WEATHER CARD */
-const currentLocation = 'New York City';
-const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${currentLocation}&appid=c5589319ae8ab1af9ff0b16018c9f76b&units=imperial`;
+const defaultWeatherLocation = 'New York City';
+const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${defaultWeatherLocation}&appid=c5589319ae8ab1af9ff0b16018c9f76b&units=imperial`;
 
 fetch(`${apiWeather}`)
 	.then(response => {
@@ -61,6 +61,60 @@ fetch(`${apiWeather}`)
 				}
 			});
 	});
+
+/************* HEADER CARD: FLIGHT DATA **************/
+
+/* FLIGHT TIME BASED ON AIRPORT CODE (USER INPUT) OR USER'S GEOLOCATION */
+const searchAirportBtn = document.getElementById('search-airport-btn');
+const searchAirportInput = document.getElementById('search-airport-input');
+const userGeolocationBtn = document.getElementById('search-location-btn');
+
+searchAirportBtn.addEventListener('click', function (event) {
+	event.preventDefault();
+
+	localStorage.setItem('location', `${searchAirportInput.value}`);
+	getFlightData(searchAirportInput.value);
+});
+
+userGeolocationBtn.addEventListener('click', function (event) {
+	event.preventDefault();
+
+	navigator.geolocation.getCurrentPosition(function (position) {
+		const lat = position.coords.latitude;
+		const lon = position.coords.longitude;
+
+		getFlightData(`${lat}, ${lon}`);
+	});
+});
+
+/* Flight Data API Call */
+function getFlightData(userLocation) {
+	const apiFlight = `https://distanceto.p.rapidapi.com/get?route=[{"t":"${userLocation}"},{"t":"JFK"}]&car=false`;
+	const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': 'a9d516e72fmsh7aa5eaca75611e7p172c7djsnf3486d2b2102',
+			'X-RapidAPI-Host': 'distanceto.p.rapidapi.com',
+		},
+	};
+
+	fetch(apiFlight, options)
+		.then(response => response.json())
+		.then(data => {
+			const flightTimeEl = document.getElementById('flight-time');
+			const flightDistanceEl = document.getElementById('flight-distance');
+			const flightStartEl = document.getElementById('airport-start-code');
+
+			flightTimeEl.textContent = `${data.steps[0].distance.flight[0].time}`;
+			flightDistanceEl.textContent = `${Math.round(
+				data.steps[0].distance.flight[0].distance
+			)}km`;
+			flightStartEl.textContent = `${data.steps[0].distance.flight[0].start}`;
+		})
+		.catch(error => {
+			console.log(error);
+		});
+}
 
 /************* DESTINATIONS SECTION: MAP TOGGLE BUTTONS **************/
 
@@ -158,65 +212,6 @@ fetch('/content/hotels.json')
 		});
 	});
 
-/************* FLIGHT DATA **************/
-
-/* Access localStorage for user's previously inputted airport code */
-const userPreviousLocation = localStorage.getItem('location');
-// getFlightData(userPreviousLocation);
-
-/* FLIGHT TIME BASED ON AIRPORT CODE (USER INPUT) OR USER'S GEOLOCATION */
-const searchCodeBtn = document.getElementById('search-airport-btn');
-const searchCodeInput = document.getElementById('search-airport-input');
-const userGeolocationBtn = document.getElementById('search-location-btn');
-
-searchCodeBtn.addEventListener('click', function (event) {
-	event.preventDefault();
-
-	localStorage.setItem('location', `${searchCodeInput.value}`);
-	getFlightData(searchCodeInput.value);
-});
-
-userGeolocationBtn.addEventListener('click', function (event) {
-	event.preventDefault();
-
-	navigator.geolocation.getCurrentPosition(function (position) {
-		const lat = position.coords.latitude;
-		const lon = position.coords.longitude;
-
-		localStorage.setItem('location', `${lat}, ${lon}`);
-		getFlightData(`${lat}, ${lon}`);
-	});
-});
-
-/* Flight Data API Call */
-function getFlightData(userLocation) {
-	const apiFlight = `https://distanceto.p.rapidapi.com/get?route=[{"t":"${userLocation}"},{"t":"JFK"}]&car=false`;
-	const options = {
-		method: 'GET',
-		headers: {
-			'X-RapidAPI-Key': 'a9d516e72fmsh7aa5eaca75611e7p172c7djsnf3486d2b2102',
-			'X-RapidAPI-Host': 'distanceto.p.rapidapi.com',
-		},
-	};
-
-	fetch(apiFlight, options)
-		.then(response => response.json())
-		.then(data => {
-			const flightTimeEl = document.getElementById('flight-time');
-			const flightDistanceEl = document.getElementById('flight-distance');
-			const flightStartEl = document.getElementById('airport-start-code');
-
-			flightTimeEl.textContent = `${data.steps[0].distance.flight[0].time}`;
-			flightDistanceEl.textContent = `${Math.round(
-				data.steps[0].distance.flight[0].distance
-			)}km`;
-			flightStartEl.textContent = `${data.steps[0].distance.flight[0].start}`;
-		})
-		.catch(error => {
-			console.log(error);
-		});
-}
-
 /************* FORMS **************/
 
 /* Scroll to CTA Form if Header Form Button Clicked */
@@ -231,9 +226,11 @@ headerFormBtn.addEventListener('click', function (event) {
 
 /* Print Message to User About Flights */
 const ctaFormBtn = document.getElementById('cta-button');
-const fromLocation = document.getElementById('cta-fromlocation');
-const toLocation = document.getElementById('cta-tolocation');
-const departureDate = document.getElementById('cta-departure');
-const arrivalDate = document.getElementById('cta-arrival');
-const travelersNum = document.getElementById('cta-travelers');
 const ctaFormWrapper = document.querySelector('.cta-form-wrapper');
+const ctaFormEl = document.querySelector('cta-form');
+
+ctaFormBtn.addEventListener('click', function (event) {
+	event.preventDefault();
+
+	ctaFormWrapper.innerHTML = `<strong>Thanks for your interest!</strong><br/><br/> Unfortunately, we are not taking any reservations at this time.`;
+});

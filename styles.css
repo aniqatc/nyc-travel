@@ -46,6 +46,7 @@ button {
 	border: none;
 }
 
+/* Form Field Styling */
 input::-webkit-datetime-edit-month-field,
 input::-webkit-datetime-edit-day-field,
 input::-webkit-datetime-edit-year-field,
@@ -58,6 +59,7 @@ input:focus::placeholder {
 	opacity: 0.5;
 }
 
+/* Links & Buttons */
 a,
 button {
 	white-space: nowrap;
@@ -73,12 +75,14 @@ button:active {
 	transform: scale(0.95);
 }
 
+/* Images & Media */
 img,
 iframe {
 	display: block;
 	max-width: 100%;
 }
 
+/* Lists & Texts Styling */
 ul {
 	list-style-type: none;
 }
