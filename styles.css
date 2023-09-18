@@ -1449,6 +1449,12 @@ footer p {
 		align-self: center;
 	}
 
+	/* Experience: Food gallery hover text */
+	.caption-hover {
+		font-size: 0.9rem;
+		letter-spacing: 0.175rem;
+	}
+
 	/* Neighborhood section changes */
 	#neighborhoods {
 		padding: 60px 20px;
@@ -1539,6 +1545,10 @@ footer p {
 	.loading-dots {
 		top: 60%;
 	}
+
+	/* Experience: Food gallery hover text */
+	.caption-hover {
+		letter-spacing: 0.04rem;
 
 	/* Experience: Entertainment Changes */
 	.entertainment-card-wrapper {
