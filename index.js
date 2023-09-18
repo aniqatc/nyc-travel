@@ -1,3 +1,5 @@
+/************* HEADER CARDS: Time, Weather, Menu Hover **************/
+
 /* UPDATE TIME */
 function updateTime() {
 	const timeEl = document.getElementById('time');
@@ -60,6 +62,8 @@ fetch(`${apiWeather}`)
 			});
 	});
 
+/************* DESTINATIONS SECTION: MAP TOGGLE BUTTONS **************/
+
 /* MAP BUTTON TOGGLES MAP */
 const mapButtons = document.querySelectorAll('.toggle-map-btn');
 const maps = document.querySelectorAll('.destination-map');
@@ -81,7 +85,9 @@ mapButtons.forEach((mapButton, index) => {
 	});
 });
 
-/* USE NEIGHBORHOOD.JSON FILE TO PULL CONTENT */
+/************* NEIGHBORHOOD & HOTELS SECTION CONTENT **************/
+
+/* NEIGHBORHOOD.JSON FOR NEIGHBORHOOD CONTENT */
 fetch('/content/neighborhood.json')
 	.then(response => {
 		return response.json();
@@ -114,7 +120,7 @@ fetch('/content/neighborhood.json')
 		});
 	});
 
-/* USE HOTELS.JSON FILE TO PULL CONTENT & SWITCH HOTEL INFO BASED ON BUTTON CLICKED */
+/* HOTELS.JSON FILE FOR HOTEL CONTENT */
 fetch('/content/hotels.json')
 	.then(response => {
 		return response.json();
@@ -152,6 +158,12 @@ fetch('/content/hotels.json')
 		});
 	});
 
+/************* FLIGHT DATA **************/
+
+/* Access localStorage for user's previously inputted airport code */
+const userPreviousLocation = localStorage.getItem('location');
+// getFlightData(userPreviousLocation);
+
 /* FLIGHT TIME BASED ON AIRPORT CODE (USER INPUT) OR USER'S GEOLOCATION */
 const searchCodeBtn = document.getElementById('search-airport-btn');
 const searchCodeInput = document.getElementById('search-airport-input');
@@ -160,6 +172,7 @@ const userGeolocationBtn = document.getElementById('search-location-btn');
 searchCodeBtn.addEventListener('click', function (event) {
 	event.preventDefault();
 
+	localStorage.setItem('location', `${searchCodeInput.value}`);
 	getFlightData(searchCodeInput.value);
 });
 
@@ -170,6 +183,7 @@ userGeolocationBtn.addEventListener('click', function (event) {
 		const lat = position.coords.latitude;
 		const lon = position.coords.longitude;
 
+		localStorage.setItem('location', `${lat}, ${lon}`);
 		getFlightData(`${lat}, ${lon}`);
 	});
 });
@@ -203,7 +217,9 @@ function getFlightData(userLocation) {
 		});
 }
 
-/* Scroll to bottom of page if header form button clicked */
+/************* FORMS **************/
+
+/* Scroll to CTA Form if Header Form Button Clicked */
 const headerFormBtn = document.getElementById('flight-form-btn');
 
 headerFormBtn.addEventListener('click', function (event) {
@@ -212,3 +228,12 @@ headerFormBtn.addEventListener('click', function (event) {
 	const target = document.getElementById('cta');
 	target.scrollIntoView({ behavior: 'smooth' });
 });
+
+/* Print Message to User About Flights */
+const ctaFormBtn = document.getElementById('cta-button');
+const fromLocation = document.getElementById('cta-fromlocation');
+const toLocation = document.getElementById('cta-tolocation');
+const departureDate = document.getElementById('cta-departure');
+const arrivalDate = document.getElementById('cta-arrival');
+const travelersNum = document.getElementById('cta-travelers');
+const ctaFormWrapper = document.querySelector('.cta-form-wrapper');
