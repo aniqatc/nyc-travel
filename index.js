@@ -37,7 +37,8 @@ navLinks.forEach(el =>
 
 /* PULL WEATHER DATA FROM API FOR WEATHER CARD */
 const defaultWeatherLocation = 'New York City';
-const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${defaultWeatherLocation}&appid=c5589319ae8ab1af9ff0b16018c9f76b&units=imperial`;
+const apiWeatherKey = 'ADD OPENWEATHER KEY HERE';
+const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${defaultWeatherLocation}&appid=${apiWeatherKey}&units=imperial`;
 
 fetch(`${apiWeather}`)
 	.then(response => {
@@ -93,7 +94,7 @@ function getFlightData(userLocation) {
 	const options = {
 		method: 'GET',
 		headers: {
-			'X-RapidAPI-Key': 'a9d516e72fmsh7aa5eaca75611e7p172c7djsnf3486d2b2102',
+			'X-RapidAPI-Key': 'ADD DISTANCETO KEY HERE',
 			'X-RapidAPI-Host': 'distanceto.p.rapidapi.com',
 		},
 	};
