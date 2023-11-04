@@ -1,10 +1,7 @@
-/************* HEADER CARDS: Time, Weather, Menu Hover **************/
-
-/* UPDATE TIME */
-function updateTime() {
+/* Header Card: Time */
+function getNewYorkTime() {
 	const timeEl = document.getElementById('time');
-	const date = new Date();
-	const time = date.toLocaleTimeString(undefined, {
+	const time = new Date().toLocaleTimeString(undefined, {
 		timeZone: 'America/New_York',
 		hour: '2-digit',
 		minute: '2-digit',
@@ -12,63 +9,71 @@ function updateTime() {
 	});
 	timeEl.textContent = `${time}`;
 }
-updateTime();
-setInterval(updateTime, 30000);
 
-/* MENU HOVER STYLING */
+function updateTime() {
+	getNewYorkTime();
+	setInterval(getNewYorkTime, 1000);
+}
+
+updateTime();
+
+/* Header Card: Menu */
 const navLinks = document.querySelectorAll('.nav-link');
 const navTitle = document.querySelector('.header-nav__title');
 
-navLinks.forEach(el =>
-	el.addEventListener('mouseenter', function () {
-		navTitle.style.color = '#fff';
-		navTitle.style.borderBottom = '1.5px solid #fff';
-		navTitle.style.fontWeight = '500';
-	})
-);
+navLinks.forEach(el => {
+	el.addEventListener('mouseenter', () => {
+		navTitle.classList.add('header-nav__title-hover');
+	});
+	el.addEventListener('mouseleave', () => {
+		navTitle.classList.remove('header-nav__title-hover');
+	});
+});
 
-navLinks.forEach(el =>
-	el.addEventListener('mouseleave', function () {
-		navTitle.style.color = '#bfbfbf';
-		navTitle.style.borderBottom = '1px solid #bfbfbf';
-		navTitle.style.fontWeight = '400';
-	})
-);
-
-/* PULL WEATHER DATA FROM API FOR WEATHER CARD */
+/* Header Card: Weather */
 const defaultWeatherLocation = 'New York City';
 const apiWeatherKey = 'ADD OPENWEATHER KEY HERE';
 const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${defaultWeatherLocation}&appid=${apiWeatherKey}&units=imperial`;
 
-fetch(`${apiWeather}`)
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		const weatherEl = document.getElementById('weather');
-		weatherEl.textContent = `${Math.round(data.main.temp)}°F`;
+async function getWeatherData() {
+	const weatherResponse = await fetch(apiWeather);
+	const weatherData = await weatherResponse.json();
 
-		const weatherIcon = document.getElementById('weather-icon');
-		fetch('/content/weather.json')
-			.then(response => {
-				return response.json();
-			})
-			.then(myIcons => {
-				for (let i = 0; i < myIcons.length; i++) {
-					if (data.weather[0].icon === myIcons[i].icon) {
-						weatherIcon.setAttribute('src', `${myIcons[i].src}`);
-						weatherIcon.setAttribute('alt', `${myIcons[i].alt}`);
-					}
-				}
-			});
-	});
+	/* Render Temperature */
+	const weatherEl = document.getElementById('weather');
+	weatherEl.textContent = `${Math.round(weatherData.main.temp)}°F`;
+
+	/* Render Icon */
+	getWeatherIcon(weatherData);
+}
+
+async function getWeatherIcon(weatherData) {
+	const iconResponse = await fetch('/content/weather.json');
+	const iconData = await iconResponse.json();
+
+	/* Render Icon */
+	const weatherIconEl = document.getElementById('weather-icon');
+	const currentWeatherIcon = iconData.find(
+		icon => icon.icon === weatherData.weather[0].icon
+	);
+
+	weatherIconEl.setAttribute('src', `${currentWeatherIcon.src}`);
+	weatherIconEl.setAttribute('alt', `${currentWeatherIcon.alt}`);
+}
+
+getWeatherData();
 
 /************* HEADER CARD: FLIGHT DATA **************/
 
-/* FLIGHT TIME BASED ON AIRPORT CODE (USER INPUT) OR USER'S GEOLOCATION */
+/* Header Card: Flight Data */
 const searchAirportBtn = document.getElementById('search-airport-btn');
 const searchAirportInput = document.getElementById('search-airport-input');
 const userGeolocationBtn = document.getElementById('search-location-btn');
+
+const userSavedAirport = localStorage.getItem('location');
+if (userSavedAirport) {
+	getFlightData(userSavedAirport);
+}
 
 searchAirportBtn.addEventListener('click', function (event) {
 	event.preventDefault();
@@ -84,12 +89,16 @@ userGeolocationBtn.addEventListener('click', function (event) {
 		const lat = position.coords.latitude;
 		const lon = position.coords.longitude;
 
+		localStorage.setItem('location', `${lat}, ${lon}`);
 		getFlightData(`${lat}, ${lon}`);
 	});
 });
 
-/* Flight Data API Call */
-function getFlightData(userLocation) {
+async function getFlightData(userLocation) {
+	const flightTimeEl = document.getElementById('flight-time');
+	const flightDistanceEl = document.getElementById('flight-distance');
+	const flightStartEl = document.getElementById('airport-start-code');
+
 	const apiFlight = `https://distanceto.p.rapidapi.com/get?route=[{"t":"${userLocation}"},{"t":"JFK"}]&car=false`;
 	const options = {
 		method: 'GET',
@@ -99,123 +108,96 @@ function getFlightData(userLocation) {
 		},
 	};
 
-	fetch(apiFlight, options)
-		.then(response => response.json())
-		.then(data => {
-			const flightTimeEl = document.getElementById('flight-time');
-			const flightDistanceEl = document.getElementById('flight-distance');
-			const flightStartEl = document.getElementById('airport-start-code');
+	const response = await fetch(apiFlight, options);
+	const data = await response.json();
 
-			flightTimeEl.textContent = `${data.steps[0].distance.flight[0].time}`;
-			flightDistanceEl.textContent = `${Math.round(
-				data.steps[0].distance.flight[0].distance
-			)}km`;
-			flightStartEl.textContent = `${data.steps[0].distance.flight[0].start}`;
-		})
-		.catch(error => {
-			console.log(error);
-		});
+	flightTimeEl.textContent = `${data.steps[0].distance.flight[0].time}`;
+	flightDistanceEl.textContent = `${Math.round(
+		data.steps[0].distance.flight[0].distance
+	)}km`;
+	flightStartEl.textContent = `${data.steps[0].distance.flight[0].start}`;
 }
 
-/************* DESTINATIONS SECTION: MAP TOGGLE BUTTONS **************/
-
-/* MAP BUTTON TOGGLES MAP */
+/* Destinations Section: Map Toggle */
 const mapButtons = document.querySelectorAll('.toggle-map-btn');
 const maps = document.querySelectorAll('.destination-map');
-const destinationImages = document.querySelectorAll(
-	'.destination-card__img-wrapper img'
-);
+const destinationImages = document.querySelectorAll('.destination-img');
 
 mapButtons.forEach((mapButton, index) => {
 	mapButton.addEventListener('click', function () {
-		if (maps[index].style.display === 'none') {
-			maps[index].style.display = 'block';
-			destinationImages[index].style.gridColumn = 'span 1';
-			destinationImages[index].style.filter = 'grayscale(75%)';
-		} else {
-			maps[index].style.display = 'none';
-			destinationImages[index].style.gridColumn = 'span 2';
-			destinationImages[index].style.filter = 'sepia(10%) grayscale(25%)';
-		}
+		maps[index].classList.toggle('destination-map__active');
+		destinationImages[index].classList.toggle('destination-img__active');
 	});
 });
 
-/************* NEIGHBORHOOD & HOTELS SECTION CONTENT **************/
+/* Render Neighborhood Section Content */
+(async function () {
+	const neighborhoodHeadings = document.querySelectorAll(
+		'.neighborhood-card__heading'
+	);
+	const neighborhoodText = document.querySelectorAll(
+		'.neighborhood-card__intro p'
+	);
+	const neighborhoodList = document.querySelectorAll(
+		'.neighborhood-card__intro ul'
+	);
 
-/* NEIGHBORHOOD.JSON FOR NEIGHBORHOOD CONTENT */
-fetch('/content/neighborhood.json')
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		const neighborhoodHeadings = document.querySelectorAll(
-			'.neighborhood-card__heading'
-		);
-		const neighborhoodText = document.querySelectorAll(
-			'.neighborhood-card__intro p'
-		);
-		const neighborhoodList = document.querySelectorAll(
-			'.neighborhood-card__intro ul'
-		);
+	const response = await fetch('/content/neighborhood.json');
+	const data = await response.json();
 
-		neighborhoodHeadings.forEach((el, index) => {
-			el.textContent = `${data[index].group}`;
-		});
-
-		neighborhoodText.forEach((el, index) => {
-			el.textContent = `${data[index].description}`;
-		});
-
-		neighborhoodList.forEach((el, index) => {
-			for (let i = 0; i < data[index].neighborhoods.length; i++) {
-				const li = document.createElement('li');
-				li.textContent = `${data[index].neighborhoods[i]}`;
-				el.appendChild(li);
-			}
-		});
+	neighborhoodHeadings.forEach((el, index) => {
+		el.textContent = `${data[index].group}`;
 	});
 
-/* HOTELS.JSON FILE FOR HOTEL CONTENT */
-fetch('/content/hotels.json')
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		const hotelCards = document.querySelectorAll('.hotel-card-wrapper');
-		const hotelHeadings = document.querySelectorAll('.hotel-card-wrapper h4');
-		const hotelImages = document.querySelectorAll('.hotel-card img');
-		const hotelBookings = document.querySelectorAll('.hotel-booking-btn');
-		const hotelAddresses = document.querySelectorAll('.hotel-address');
-		const hotelNumbers = document.querySelectorAll('.hotel-number');
+	neighborhoodText.forEach((el, index) => {
+		el.textContent = `${data[index].description}`;
+	});
 
-		hotelCards.forEach((card, index) => {
-			const hotelButtons = card.querySelectorAll('.hotel-button');
-			hotelButtons.forEach(button => {
-				button.addEventListener('click', function (event) {
-					event.preventDefault();
+	neighborhoodList.forEach((el, index) => {
+		for (let i = 0; i < data[index].neighborhoods.length; i++) {
+			const li = document.createElement('li');
+			li.textContent = `${data[index].neighborhoods[i]}`;
+			el.appendChild(li);
+		}
+	});
+})();
 
-					hotelButtons.forEach(el => el.classList.remove('active-button'));
-					button.classList.add('active-button');
+/* Render Hotel Section Content */
+(async function () {
+	const hotelCards = document.querySelectorAll('.hotel-card-wrapper');
+	const hotelHeadings = document.querySelectorAll('.hotel-card-wrapper h4');
+	const hotelImages = document.querySelectorAll('.hotel-card img');
+	const hotelBookings = document.querySelectorAll('.hotel-booking-btn');
+	const hotelAddresses = document.querySelectorAll('.hotel-address');
+	const hotelNumbers = document.querySelectorAll('.hotel-number');
 
-					const target = button.getAttribute('data-target');
+	const response = await fetch('/content/hotels.json');
+	const data = await response.json();
 
-					hotelHeadings[index].textContent = `${data[target].name}`;
-					hotelBookings[index].setAttribute('href', `${data[target].booking}`);
-					hotelAddresses[index].textContent = `${data[target].address}`;
-					hotelNumbers[index].textContent = `${data[target].contact}`;
-					hotelImages[index].setAttribute('src', `${data[target].img}`);
-					hotelImages[index].setAttribute(
-						'alt',
-						`Image of ${data[target].name}`
-					);
-				});
+	hotelCards.forEach((card, index) => {
+		const hotelButtons = card.querySelectorAll('.hotel-button');
+		hotelButtons.forEach(button => {
+			button.addEventListener('click', function (event) {
+				event.preventDefault();
+
+				hotelButtons.forEach(el => el.classList.remove('active-button'));
+				button.classList.add('active-button');
+
+				const target = button.getAttribute('data-target');
+
+				hotelHeadings[index].textContent = `${data[target].name}`;
+				hotelBookings[index].setAttribute('href', `${data[target].booking}`);
+				hotelAddresses[index].textContent = `${data[target].address}`;
+				hotelNumbers[index].textContent = `${data[target].contact}`;
+				hotelImages[index].setAttribute('src', `${data[target].img}`);
+				hotelImages[index].setAttribute('alt', `Image of ${data[target].name}`);
 			});
 		});
 	});
+})();
 
-/************* FORMS **************/
-
-/* Scroll to CTA Form if Header Form Button Clicked */
+/* Simple Form Functionality */
+// Note: No actual purpose other than being a decorative element
 const headerFormBtn = document.getElementById('flight-form-btn');
 
 headerFormBtn.addEventListener('click', function (event) {
@@ -225,7 +207,6 @@ headerFormBtn.addEventListener('click', function (event) {
 	target.scrollIntoView({ behavior: 'smooth' });
 });
 
-/* Print Message to User About Flights */
 const ctaFormBtn = document.getElementById('cta-button');
 const ctaFormWrapper = document.querySelector('.cta-form-wrapper');
 const ctaFormEl = document.querySelector('cta-form');
@@ -233,5 +214,6 @@ const ctaFormEl = document.querySelector('cta-form');
 ctaFormBtn.addEventListener('click', function (event) {
 	event.preventDefault();
 
-	ctaFormWrapper.innerHTML = `<strong>Thanks for your interest!</strong><br/><br/> Unfortunately, we are not taking any reservations at this time.`;
+	ctaFormWrapper.innerHTML = `<strong>Thanks for your interest!</strong><br/>
+	<br/> Unfortunately, we are not taking any reservations at this time.`;
 });

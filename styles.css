@@ -405,6 +405,12 @@ header .container {
 	transform: translate(-50%, -50%) rotate(90deg);
 }
 
+.header-nav__title-hover {
+	color: #fff;
+	border-bottom: 1.5px solid #fff;
+	font-weight: 500;
+}
+
 /************************/
 /* Flight Loading Dots */
 .loading-dots {
@@ -810,7 +816,7 @@ aside span {
 	color: #444444;
 }
 
-.destination-card__img-wrapper {
+.destination-img-wrapper {
 	margin-bottom: 16px;
 	margin-top: 10px;
 
@@ -818,7 +824,7 @@ aside span {
 	grid-template-columns: 1fr 1fr;
 }
 
-.destination-card__img-wrapper img {
+.destination-img {
 	height: 275px;
 	border-radius: var(--border-inner);
 	object-fit: cover;
@@ -829,6 +835,16 @@ aside span {
 .destination-map {
 	height: 275px;
 	border-radius: var(--border-inner);
+	display: none;
+}
+
+.destination-map__active {
+	display: block;
+}
+
+.destination-img__active {
+	grid-column: span 1;
+	filter: grayscale(75%);
 }
 
 .destination-card__footer {
@@ -1208,14 +1224,12 @@ footer p {
 	transform: scale(1.1);
 }
 
-.footer__nyc-links a,
-.footer__social-icons a,
+.footer-content-wrapper a,
 .footer__social-icons i {
 	transition: var(--standard-transition);
 }
 
-.footer__nyc-links a:hover,
-.footer__social-icons a:hover {
+.footer-content-wrapper a:hover {
 	color: #fff;
 	text-decoration: underline;
 }
@@ -1573,7 +1587,7 @@ footer p {
 	}
 
 	.destination-map,
-	.destination-card__img-wrapper img {
+	.destination-img {
 		height: 225px;
 	}
 
