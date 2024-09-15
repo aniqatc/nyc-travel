@@ -1475,7 +1475,7 @@ footer p {
 
 	/* Neighborhood section changes */
 	#neighborhoods {
-		padding: 60px 20px;
+		padding: 60px 10px;
 	}
 
 	.neighborhood-card {
@@ -1510,7 +1510,7 @@ footer p {
 
 /***********************/
 /***********************/
-@media (max-width: 500px) {
+@media (max-width: 470px) {
 	/* General Sizing/Margin/Padding Adjustments */
 	#about,
 	#destinations,
