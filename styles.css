@@ -1583,7 +1583,11 @@ footer p {
 
 	/* Destination Card Changes */
 	.destination-card-wrapper {
-		padding: 30px 20px;
+		padding: 24px 16px;
+	}
+
+	.destination-card {
+		min-width: 300px;
 	}
 
 	.destination-map,
