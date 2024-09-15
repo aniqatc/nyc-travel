@@ -1475,7 +1475,12 @@ footer p {
 
 	/* Neighborhood section changes */
 	#neighborhoods {
-		padding: 60px 10px;
+		padding: 40px 0;
+	}
+
+	#neighborhoods h2 {
+		margin-left: 20px;
+		margin-right: 20px;
 	}
 
 	.neighborhood-card {
