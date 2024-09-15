@@ -1475,19 +1475,13 @@ footer p {
 
 	/* Neighborhood section changes */
 	#neighborhoods {
-		padding: 40px 0;
-	}
-
-	#neighborhoods h2 {
-		margin-left: 20px;
-		margin-right: 20px;
+		padding: 60px 20px;
 	}
 
 	.neighborhood-card {
 		border-radius: var(--gap-sm);
 		padding: 20px;
 		height: fit-content;
-		width: 100%;
 	}
 
 	.neighborhood-card h3 {
@@ -1516,7 +1510,7 @@ footer p {
 
 /***********************/
 /***********************/
-@media (max-width: 470px) {
+@media (max-width: 475px) {
 	/* General Sizing/Margin/Padding Adjustments */
 	#about,
 	#destinations,
@@ -1589,11 +1583,11 @@ footer p {
 
 	/* Destination Card Changes */
 	.destination-card-wrapper {
-		padding: 24px 16px;
+		padding: 30px 20px;
 	}
 
 	.destination-card {
-		min-width: 300px;
+		min-width: 320px;
 	}
 
 	.destination-map,
